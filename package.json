@@ -1,0 +1,28 @@
+{
+    "$schema": "https://json.schemastore.org/package.json",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "build": "vite build",
+        "dev": "vite"
+    },
+    "devDependencies": {
+        "@prerenderer/renderer-puppeteer": "^1.2.4",
+        "@vitejs/plugin-vue": "^5.0.4",
+        "autoprefixer": "^10.4.19",
+        "axios": "^1.6.4",
+        "laravel-vite-plugin": "^1.0",
+        "postcss": "^8.4.38",
+        "tailwindcss": "^3.4.3",
+        "vite": "^5.0",
+        "vite-plugin-prerender": "^1.0.8",
+        "vite-plugin-prerenderer": "^1.0.1",
+        "vue": "^3.3.11"
+    },
+    "dependencies": {
+        "aos": "^2.3.4",
+        "pinia": "^3.0.3",
+        "three": "^0.177.0",
+        "vue-router": "^4.5.1"
+    }
+}
