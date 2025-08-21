@@ -3,7 +3,7 @@
 # 🚀 Hi there, I'm Vito (柯瑋宸) 
 ### 💻 Self-Taught Developer | 🌟 Tech Innovator | 🔥 Problem Solver
 
-![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=36BCF7&center=true&vCenter=true&width=435&lines=19-year-old+Programming+Prodigy;Full-Stack+Engineer;Shopee+Automation+Tool+Creator;AI+%26+Full-Stack+Developer)
+![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=36BCF7&center=true&vCenter=true&width=435&lines=19-year-old+Programming+Prodigy;Full-Stack+Engineer;Shopee+Automation+Tool+Creator;AI+%26+Mobile+Developer)
 
 </div>
 
@@ -48,6 +48,12 @@
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)
 ![Spring Boot](https://img.shields.io/badge/Spring_Boot-6DB33F?style=for-the-badge&logo=spring-boot&logoColor=white)
+
+### Mobile Development
+![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)
+![Kotlin](https://img.shields.io/badge/Kotlin-0095D5?style=for-the-badge&logo=kotlin&logoColor=white)
+![Dart](https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white)
+![Android](https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)
 
 ### AI & Tools
 ![TensorFlow](https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)
@@ -138,10 +144,10 @@
  - 🤖 Developed AI bots with 1000+ users
  - 🚀 Headhunted by major e-commerce platform
  - 💼 Currently working as Full-Stack Engineer at two companies simultaneously
+ - 📱 Mastering cross-platform mobile development with Flutter & Kotlin
  - 📈 767+ GitHub contributions in the past year
  - 🌟 Inspired countless non-CS students to pursue programming
-
-
+ 
 ---
 
 ## 💭 My Philosophy
@@ -165,9 +171,9 @@ I believe that **creativity**, **determination**, and **continuous learning** ca
 ## 📈 Current Focus
 
 - 🔭 **Currently working on:** Full-stack development projects at Futron Life & GTBooster
-- 🌱 **Currently learning:** PyTorch, TensorFlow, Advanced AI/ML, Microservices Architecture
-- 🎯 **2025 Goals:** Launch personal SaaS products, contribute to major open source projects
-- 💡 **Always exploring:** New ways to automate and optimize workflows across different tech stacks
+- 🌱 **Currently learning:** PyTorch, TensorFlow, Advanced AI/ML, Microservices Architecture, Advanced Flutter Development
+- 🎯 **2025 Goals:** Launch personal SaaS products, develop cross-platform mobile apps, contribute to major open source projects
+- 💡 **Always exploring:** New ways to automate and optimize workflows across web, mobile, and AI technologies
 
 ---
 
@@ -186,7 +192,7 @@ I believe that **creativity**, **determination**, and **continuous learning** ca
 <div align="center">
   
 ### ⚡ Fun Fact
-**My SQL injection diagram got me my first job - now I'm a full-stack engineer at two companies, proving that sometimes one good idea can open multiple doors!**
+**My SQL injection diagram got me my first job - now I'm a full-stack engineer at two companies developing everything from web apps to mobile solutions, proving that sometimes one good idea can open multiple doors!**
 
 ![Profile Views](https://komarev.com/ghpvc/?username=vito1317&color=brightgreen&style=for-the-badge)
 
