@@ -122,6 +122,32 @@
 
 ---
 
+## 📰 Media Coverage
+
+<div align="center">
+
+### 🎬 Featured in the News
+
+*"My journey has been covered by major media outlets, inspiring others to pursue their dreams regardless of educational background."*
+
+</div>
+
+| 📅 **Date** | 📰 **Media Outlet** | 📖 **Title** |
+|-------------|---------------------|---------------|
+| **2025-06-25** | [**Yahoo 新聞**](https://tw.news.yahoo.com/%E5%BE%9E%E8%82%84%E6%A5%AD%E7%94%9F%E5%88%B0%E7%A7%91%E6%8A%80%E6%96%B0%E8%B2%B4-19%E6%AD%B2%E5%A5%87%E6%89%8D%E6%9F%AF%E7%91%8B%E5%AE%B8%E7%9A%84%E9%80%86%E8%A5%B2%E4%B9%8B%E8%B7%AF-%E7%8D%B2%E8%9D%A6%E7%9A%AE%E5%BB%B6%E6%94%AC%E5%85%A5%E4%B8%BB%E7%B8%BD%E9%83%A8-084007989.html) | 從肄業生到科技新貴：19歲奇才柯瑋宸的逆襲之路 |
+| **2025-06-25** | [**PChome 新聞**](https://news.pchome.com.tw/society/tyenews/20250625/index-75084080724970343002.html) | 19歲奇才獲蝦皮延攬入主總部 |
+| **2025-06-30** | [**台灣新聞聯播網**](https://twnewshub.com/archives/89871) | 打工仔逆襲！19歲自學工程師從門市人員踏入技術核心 |
+| **2025-07-10** | [**新富族傳媒**](https://e-rich.com.tw/archives/12501) | 從後台警報到蝦皮總部聘書：自學程式被延攬成核心人才 |
+| **2025-06-25** | [**資安新聞整合**](https://www.eunomics.net/posts/863) | 年輕奇才崛起：跨國攻防與聯防的新時代 |
+
+<div align="center">
+
+[![更多新聞報導](https://img.shields.io/badge/更多新聞報導-vito1317.com/news-blue?style=for-the-badge&logo=newspaper&logoColor=white)](https://vito1317.com/news)
+
+</div>
+
+---
+
 ## 📊 GitHub Analytics
 
 <div align="center">
