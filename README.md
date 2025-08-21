@@ -1,57 +1,122 @@
-# 柯瑋宸 (vito1317)
+<div align="center">
+  
+# 🚀 Hi there, I'm Vito (柯瑋宸) 
+### 💻 Self-Taught Developer | 🌟 Tech Innovator | 🔥 Problem Solver
 
-嗨，我是柯瑋宸（GitHub：`vito1317`），一位熱衷於後端與前端整合的全端工程師，擅長使用 Laravel 與 Vue 建構現代化的網頁應用與個人網站。
+![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=36BCF7&center=true&vCenter=true&width=435&lines=19-year-old+Programming+Prodigy;Frontend+Engineer+%40+GTBooster;Shopee+Automation+Tool+Creator;AI+%26+Full-Stack+Developer)
 
---
+</div>
 
-## 關於我
+---
 
-- **名字**：柯瑋宸
-- **專長領域**：Web 開發、系統整合、使用者認證（Passkeys / Sanctum）
-- **常用技術**：PHP (Laravel), JavaScript (Vue 3), Tailwind CSS, Vite, MySQL
+## 🎯 About Me
 
-我喜歡把乾淨的後端架構與互動式前端結合，撰寫可維護且具可擴充性的程式碼，並在個人作品中實作現代化認證與部署流程。
+> **"From high school dropout to tech innovator - proving that passion and continuous learning matter more than traditional credentials."**
 
---
+🌱 **Age:** 19 years old  
+💼 **Current Role:** Frontend Engineer at GTBooster (聚騰科技)  
+🏠 **Location:** New Taipei City, Taiwan  
+🌐 **Website:** [vito1317.com](https://vito1317.com)  
+📧 **Contact:** service@vito1317.com  
 
-## 技能
+### 🔥 My Journey
+- 🎨 Started with a **hand-drawn SQL injection diagram** that caught a CEO's attention
+- 💪 **Self-taught** programmer mastering multiple tech stacks
+- 🏪 Developed automation tools while working at Shopee store
+- 🚀 Got **headhunted by Shopee HQ** for my innovative automation project
+- 🤖 Creator of AI-powered Discord bots and automation solutions
 
-- **後端**：Laravel, Eloquent ORM, RESTful API
-- **前端**：Vue 3, Vite, Tailwind CSS
-- **認證 / 安全**：Laravel Sanctum, Passkeys
-- **工具**：Git, Composer, npm / yarn, Docker
+---
 
---
+## 🛠️ Tech Arsenal
 
-## 精選專案
+### Frontend
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![jQuery](https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white)
+![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)
+![Vue.js](https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D)
 
-- **個人網站 / 作品集** — 本倉庫：以 Laravel + Vue 建構的個人首頁與作品集，包含聯絡表單與 Email 通知。
-- **示範功能**：Passkey 登入（一次性 code 與 Sanctum）、聯絡表單郵件寄送、作品列表管理。
+### Backend
+![PHP](https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white)
+![Laravel](https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)
+![Spring Boot](https://img.shields.io/badge/Spring_Boot-6DB33F?style=for-the-badge&logo=spring-boot&logoColor=white)
 
-欲了解更多專案細節，請查看本 Repo 的 `routes/`、`resources/js/` 與 `app/` 資料夾。
+### AI & Tools
+![TensorFlow](https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)
+![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white)
+![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
 
---
+---
 
-## 快速啟動
+## 🌟 Featured Projects
 
-在本專案根目錄執行：
+<table>
+<tr>
+<td width="50%">
 
-```bash
-composer install
-cp .env.example .env
-php artisan key:generate
-php artisan migrate --seed
-npm install
-npm run build     # 或 npm run dev
-php artisan serve
-```
+### 🤖 [Nana Bot](https://github.com/vito1317/nana-bot)
+**AI-Powered Discord Assistant**
+- 🧠 **Google Gemini AI** integration
+- 💬 Smart conversational AI
+- 🎯 Mental health support features
+- ⚡ Real-time response system
 
---
+**Tech Stack:** `Python` `Discord.py` `Google AI`
 
-## 聯絡方式
+</td>
+<td width="50%">
 
-- Email: 請在 repo 或個人網站上放置聯絡資訊（如欲我協助加入請告訴我想公開的聯絡方式）
+### 🛍️ [Shopee Automation Tool](https://github.com/vito1317/Shopee-Automation-tool)
+**Store Operations Automation**
+- 🔄 **Automated** repetitive tasks
+- 📢 TTS voice announcements  
+- 📊 Real-time data processing
+- 🏪 Chrome extension for logistics
 
-歡迎追蹤我的作品，或在 Issue/PR 中交流想法 ✨
+**Tech Stack:** `JavaScript` `Chrome API` `Automation`
 
+</td>
+</tr>
+<tr>
+<td width="50%">
 
+### 🔍 [Search Engine API](https://github.com/vito1317/search-engine-tool-vito1317)
+**Open Source Search Solution**
+- 🚀 **High-performance** Python API
+- 🔧 Customizable search algorithms
+- 📝 Comprehensive documentation
+- 🌐 RESTful API design
+
+**Tech Stack:** `Python` `FastAPI` `Search Algorithms`
+
+</td>
+<td width="50%">
+
+### 🏨 [Taipei Booking System](https://github.com/vito1317/Taipei-Booking)
+**Tourism Booking Platform**
+- 🎯 **Java Spring Boot** architecture
+- 🗺️ Taipei attractions integration
+- 💳 Booking management system
+- 📱 Responsive design
+
+**Tech Stack:** `Java` `Spring Boot` `MySQL`
+
+</td>
+</tr>
+</table>
+
+---
+
+## 📊 GitHub Analytics
+
+<div align="center">
+  
+![Vito's GitHub stats](https://github-readme-stats.vercel.app/api?username=vito1317&show_icons=true&theme=radical&hide_border=true&bg_color=0D1117)
+
+![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=vito1317&layout=compact&theme=radical&hide_border=true
