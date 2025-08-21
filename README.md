@@ -132,14 +132,14 @@
 
 ## 🏆 Achievements & Recognition
 
-🎯 Self-taught programming from scratch
-🏢 Hired by tech company at age 18 with just one diagram
-🛍️ Created automation tools used in real business operations
-🤖 Developed AI bots with 1000+ users
-🚀 Headhunted by major e-commerce platform
-💼 Currently working as Full-Stack Engineer at two companies simultaneously
-📈 767+ GitHub contributions in the past year
-🌟 Inspired countless non-CS students to pursue programming
+ - 🎯 Self-taught programming from scratch
+ - 🏢 Hired by tech company at age 18 with just one diagram
+ - 🛍️ Created automation tools used in real business operations
+ - 🤖 Developed AI bots with 1000+ users
+ - 🚀 Headhunted by major e-commerce platform
+ - 💼 Currently working as Full-Stack Engineer at two companies simultaneously
+ - 📈 767+ GitHub contributions in the past year
+ - 🌟 Inspired countless non-CS students to pursue programming
 
 
 ---
