@@ -1,61 +1,57 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 柯瑋宸 (vito1317)
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+嗨，我是柯瑋宸（GitHub：`vito1317`），一位熱衷於後端與前端整合的全端工程師，擅長使用 Laravel 與 Vue 建構現代化的網頁應用與個人網站。
 
-## About Laravel
+--
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 關於我
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- **名字**：柯瑋宸
+- **專長領域**：Web 開發、系統整合、使用者認證（Passkeys / Sanctum）
+- **常用技術**：PHP (Laravel), JavaScript (Vue 3), Tailwind CSS, Vite, MySQL
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+我喜歡把乾淨的後端架構與互動式前端結合，撰寫可維護且具可擴充性的程式碼，並在個人作品中實作現代化認證與部署流程。
 
-## Learning Laravel
+--
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## 技能
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- **後端**：Laravel, Eloquent ORM, RESTful API
+- **前端**：Vue 3, Vite, Tailwind CSS
+- **認證 / 安全**：Laravel Sanctum, Passkeys
+- **工具**：Git, Composer, npm / yarn, Docker
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+--
 
-## Laravel Sponsors
+## 精選專案
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+- **個人網站 / 作品集** — 本倉庫：以 Laravel + Vue 建構的個人首頁與作品集，包含聯絡表單與 Email 通知。
+- **示範功能**：Passkey 登入（一次性 code 與 Sanctum）、聯絡表單郵件寄送、作品列表管理。
 
-### Premium Partners
+欲了解更多專案細節，請查看本 Repo 的 `routes/`、`resources/js/` 與 `app/` 資料夾。
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+--
 
-## Contributing
+## 快速啟動
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+在本專案根目錄執行：
 
-## Code of Conduct
+```bash
+composer install
+cp .env.example .env
+php artisan key:generate
+php artisan migrate --seed
+npm install
+npm run build     # 或 npm run dev
+php artisan serve
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+--
 
-## Security Vulnerabilities
+## 聯絡方式
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+- Email: 請在 repo 或個人網站上放置聯絡資訊（如欲我協助加入請告訴我想公開的聯絡方式）
 
-## License
+歡迎追蹤我的作品，或在 Issue/PR 中交流想法 ✨
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
