@@ -171,6 +171,7 @@
  - 🚀 Headhunted by major e-commerce platform
  - 💼 Currently working as Full-Stack Engineer at two companies simultaneously
  - 📱 Mastering cross-platform mobile development with Flutter & Kotlin
+ - 📺 Featured in major media outlets inspiring next generation developers
  - 📈 767+ GitHub contributions in the past year
  - 🌟 Inspired countless non-CS students to pursue programming
  
