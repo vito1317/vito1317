@@ -1,236 +1,115 @@
 <div align="center">
-  
-# 🚀 Hi there, I'm Vito (柯瑋宸) 
-### 💻 Self-Taught Developer | 🌟 Tech Innovator | 🔥 Problem Solver
-
-![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=36BCF7&center=true&vCenter=true&width=435&lines=19-year-old+Programming+Prodigy;Full-Stack+Engineer;Shopee+Automation+Tool+Creator;AI+%26+Mobile+Developer)
-
+🚀 Hi there, I'm Vito (柯瑋宸)
+💻 Security Consultant | 🌟 White Hat Hacker | 🔥 Full-Stack Developer
 </div>
-
----
-
-## 🎯 About Me
-
-> **"From high school dropout to tech innovator - proving that passion and continuous learning matter more than traditional credentials."**
-
-🌱 **Age:** 19 years old  
-💼 **Current Roles:** 
-- Full-Stack Engineer at **富創生活科技 (Futron Life)**
-- Full-Stack Engineer at **GTBooster (聚騰科技)**  
-🏠 **Location:** New Taipei City, Taiwan  
-🌐 **Website:** [vito1317.com](https://vito1317.com)  
-📧 **Contact:** service@vito1317.com  
-
-### 🔥 My Journey
-- 🎨 Started with a **hand-drawn SQL injection diagram** that caught a CEO's attention
-- 💪 **Self-taught** programmer mastering multiple tech stacks
-- 🏪 Developed automation tools while working at Shopee store
-- 🚀 Got **headhunted by Shopee HQ** for my innovative automation project
-- 🤖 Creator of AI-powered Discord bots and automation solutions
-- 💻 Currently serving as **Full-Stack Engineer** at two innovative tech companies
-
----
-
-## 🛠️ Tech Arsenal
-
-### Frontend
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-![jQuery](https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white)
-![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)
-![Vue.js](https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D)
-
-### Backend
-![PHP](https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white)
-![Laravel](https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)
-![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)
-![Spring Boot](https://img.shields.io/badge/Spring_Boot-6DB33F?style=for-the-badge&logo=spring-boot&logoColor=white)
-
-### Mobile Development
-![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)
-![Kotlin](https://img.shields.io/badge/Kotlin-0095D5?style=for-the-badge&logo=kotlin&logoColor=white)
-![Dart](https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white)
-![Android](https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)
-
-### AI & Tools
-![TensorFlow](https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)
-![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)
-![MySQL](https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white)
-![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
-
----
-
-## 🌟 Featured Projects
-
+🎯 About Me
+> "From high school dropout to University Security Consultant - proving that skills and integrity define a true hacker."
+> 
+🌱 Age: 19 years old
+💼 Current Roles: - IT Security Consultant at China University of Science and Technology (CUST)
+ * Full-Stack Engineer at GTBooster (聚騰科技) 🏠 Location: New Taipei City, Taiwan
+   🌐 Website: vito1317.com
+   📧 Contact: service@vito1317.com
+🔥 My Journey
+ * 🎨 Started with a hand-drawn SQL injection diagram that caught a CEO's attention at 18
+ * 🏪 Developed automation tools for Shopee; declined HQ offer to pursue further education
+ * 🛡️ Discovered critical RCE & SQL vulnerabilities in my university's system
+ * 🤝 Hired by the University (CUST) as an IT Consultant to secure the campus network
+ * 💻 Currently balancing roles as a Student and Security Consultant
+ * 🤖 Creator of AI-powered Discord bots and open-source security tools
+🛠️ Tech Arsenal
+Security & Tools
+Frontend
+Backend
+🌟 Featured Projects
 <table>
 <tr>
 <td width="50%">
-
-### 🤖 [Nana Bot](https://github.com/vito1317/nana-bot)
-**AI-Powered Discord Assistant**
-- 🧠 **Google Gemini AI** integration
-- 💬 Smart conversational AI
-- 🎯 Mental health support features
-- ⚡ Real-time response system
-
-**Tech Stack:** `Python` `Discord.py` `Google AI`
-
+🛡️ CUST Security Assessment
+Enterprise Vulnerability Report
+ * 🚨 Discovered CVE-2017-5638 (RCE)
+ * 💉 Identified mass SQL Injection points
+ * 🔒 Secured 500+ tables of sensitive data
+ * 📝 Led to employment as Consultant
+Tech Stack: Penetration Testing Vulnerability Analysis
 </td>
 <td width="50%">
-
-### 🛍️ [Shopee Automation Tool](https://github.com/vito1317/Shopee-Automation-tool)
-**Store Operations Automation**
-- 🔄 **Automated** repetitive tasks
-- 📢 TTS voice announcements  
-- 📊 Real-time data processing
-- 🏪 Chrome extension for logistics
-
-**Tech Stack:** `JavaScript` `Chrome API` `Automation`
-
+🛍️ Shopee Automation Tool
+Store Operations Automation
+ * 🔄 Automated repetitive store tasks
+ * 📢 TTS voice announcements system
+ * ⚡ Optimized logic for high-traffic use
+ * 🏢 Passed official HQ security review
+Tech Stack: JavaScript Chrome Extension DOM Manipulation
 </td>
 </tr>
 <tr>
 <td width="50%">
-
-### 🔍 [Search Engine API](https://github.com/vito1317/search-engine-tool-vito1317)
-**Open Source Search Solution**
-- 🚀 **High-performance** Python API
-- 🔧 Customizable search algorithms
-- 📝 Comprehensive documentation
-- 🌐 RESTful API design
-
-**Tech Stack:** `Python` `FastAPI` `Search Algorithms`
-
+🤖 Nana Bot
+AI-Powered Discord Assistant
+ * 🧠 Google Gemini AI integration
+ * 💬 Context-aware conversation
+ * 🚀 Serving 1000+ users
+ * 🔄 Real-time response system
+Tech Stack: Python Google Generative AI Discord.py
 </td>
 <td width="50%">
-
-### 🏨 [Taipei Booking System](https://github.com/vito1317/Taipei-Booking)
-**Tourism Booking Platform**
-- 🎯 **Java Spring Boot** architecture
-- 🗺️ Taipei attractions integration
-- 💳 Booking management system
-- 📱 Responsive design
-
-**Tech Stack:** `Java` `Spring Boot` `MySQL`
-
+🔍 Search Engine API
+Open Source Search Solution
+ * 🚀 High-performance Python API
+ * 🔧 Anti-bot bypass mechanisms
+ * 📦 Published on PyPI
+ * 🌐 Multi-engine aggregation
+Tech Stack: Python Selenium BeautifulSoup
 </td>
 </tr>
 </table>
-
----
-
-## 📰 Media Coverage
-
+📰 Media Coverage
 <div align="center">
-
-### 🎬 Featured in the News
-
-*"My journey has been covered by major media outlets, inspiring others to pursue their dreams regardless of educational background."*
-
+🎬 Featured in the News
+"Recognized for unconventional path: From high school dropout to tech innovator and security expert."
 </div>
-
-| 📅 **Date** | 📰 **Media Outlet** | 📖 **Title** |
-|-------------|---------------------|---------------|
-| **2025-06-25** | [**Yahoo 新聞**](https://tw.news.yahoo.com/%E5%BE%9E%E8%82%84%E6%A5%AD%E7%94%9F%E5%88%B0%E7%A7%91%E6%8A%80%E6%96%B0%E8%B2%B4-19%E6%AD%B2%E5%A5%87%E6%89%8D%E6%9F%AF%E7%91%8B%E5%AE%B8%E7%9A%84%E9%80%86%E8%A5%B2%E4%B9%8B%E8%B7%AF-%E7%8D%B2%E8%9D%A6%E7%9A%AE%E5%BB%B6%E6%94%AC%E5%85%A5%E4%B8%BB%E7%B8%BD%E9%83%A8-084007989.html) | 從肄業生到科技新貴：19歲奇才柯瑋宸的逆襲之路 |
-| **2025-06-25** | [**PChome 新聞**](https://news.pchome.com.tw/society/tyenews/20250625/index-75084080724970343002.html) | 19歲奇才獲蝦皮延攬入主總部 |
-| **2025-06-30** | [**台灣新聞聯播網**](https://twnewshub.com/archives/89871) | 打工仔逆襲！19歲自學工程師從門市人員踏入技術核心 |
-| **2025-07-10** | [**新富族傳媒**](https://e-rich.com.tw/archives/12501) | 從後台警報到蝦皮總部聘書：自學程式被延攬成核心人才 |
-| **2025-06-25** | [**資安新聞整合**](https://www.eunomics.net/posts/863) | 年輕奇才崛起：跨國攻防與聯防的新時代 |
-
+| 📅 Date | 📰 Media Outlet | 📖 Title |
+|---|---|---|
+| 2025-06-25 | Yahoo 新聞 | 從肄業生到科技新貴：19歲奇才柯瑋宸的逆襲之路 |
+| 2025-06-25 | PChome 新聞 | 19歲奇才獲企業延攬：自學技術成核心競爭力 |
+| 2025-06-30 | 台灣新聞聯播網 | 實力勝過學歷！19歲自學工程師的職場傳奇 |
+| 2025-07-10 | 新富族傳媒 | 從後台警報到資安顧問：自學駭客的白帽之路 |
 <div align="center">
-
-[![更多新聞報導](https://img.shields.io/badge/更多新聞報導-vito1317.com/news-blue?style=for-the-badge&logo=newspaper&logoColor=white)](https://vito1317.com/news)
-
 </div>
-
----
-
-## 📊 GitHub Analytics
-
+📊 GitHub Analytics
 <div align="center">
-  
-![Vito's GitHub stats](https://github-readme-stats.vercel.app/api?username=vito1317&show_icons=true&theme=radical&hide_border=true&bg_color=0D1117)
-
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=vito1317&layout=compact&theme=radical&hide_border=true&bg_color=0D1117)
-
-![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=vito1317&theme=radical&hide_border=true&background=0D1117)
-
 </div>
-
----
-
-## 🏆 Achievements & Recognition
-
- - 🎯 Self-taught programming from scratch
- - 🏢 Hired by tech company at age 18 with just one diagram
- - 🛍️ Created automation tools used in real business operations
- - 🤖 Developed AI bots with 1000+ users
- - 🚀 Headhunted by major e-commerce platform
- - 💼 Currently working as Full-Stack Engineer at two companies simultaneously
- - 📱 Mastering cross-platform mobile development with Flutter & Kotlin
- - 📺 Featured in major media outlets inspiring next generation developers
- - 📈 767+ GitHub contributions in the past year
- - 🌟 Inspired countless non-CS students to pursue programming
- 
----
-
-## 💭 My Philosophy
-
+🏆 Achievements & Recognition
+ * 🎯 White Hat Hero: Found & patched critical RCE/SQLi bugs at CUST
+ * 🎓 Consultant at 19: Hired by University IT center while being a student
+ * 🛍️ Process Innovator: Created Shopee automation tools used in real ops
+ * 🤖 AI Developer: Built Discord bots serving 1000+ communities
+ * 💼 Dual Role: Balancing academic studies with professional security consulting
+ * 📈 Open Source: Active contributor to Python and Web Security tools
+ * 🌟 Inspiration: Proving that hands-on skills can open any door
+💭 My Philosophy
 <div align="center">
-
-### 🌟 Personal Motto
-
-> **"學歷並非終點，實力才是起點；用熱情編寫程式，創造自己的未來。"**
+🌟 Personal Motto
+> "學歷是門票，但實力才是武器；用技術守護安全，用熱情重寫規則。"
+> "Degrees open doors, but skills build bridges. Secure the world with code, rewrite the rules with passion."
 > 
-> *"Education is not the end, but ability is the beginning. Code with passion and create your own future."*
-
 </div>
-
-I believe that **creativity**, **determination**, and **continuous learning** can overcome any traditional barrier. My journey from a high school dropout to a recognized full-stack developer at multiple companies proves that in tech, your **code speaks louder than your credentials**. 
-
-**Passion drives innovation, skills build the foundation, and perseverance creates opportunities.**
-
----
-
-## 📈 Current Focus
-
-- 🔭 **Currently working on:** Full-stack development projects at Futron Life & GTBooster
-- 🌱 **Currently learning:** PyTorch, TensorFlow, Advanced AI/ML, Microservices Architecture, Advanced Flutter Development
-- 🎯 **2025 Goals:** Launch personal SaaS products, develop cross-platform mobile apps, contribute to major open source projects
-- 💡 **Always exploring:** New ways to automate and optimize workflows across web, mobile, and AI technologies
-
----
-
-## 🤝 Let's Connect!
-
+I believe that curiosity and integrity are a hacker's best tools. My journey from developing automation scripts to securing university infrastructure proves that if you can solve the hardest problems, the world will create a role for you.
+📈 Current Focus
+ * 🔭 Currently working on: Securing CUST's infrastructure & GTBooster frontend
+ * 🌱 Currently learning: Advanced Penetration Testing, Network Forensics, Edge AI
+ * 🎯 2025 Goals: Obtain OSCP certification, publish security research papers
+ * 💡 Always exploring: New vulnerabilities (to fix them!) and AI security applications
+🤝 Let's Connect!
 <div align="center">
-
-[![Website](https://img.shields.io/badge/Website-vito1317.com-blue?style=for-the-badge&logo=google-chrome)](https://vito1317.com)
-[![Email](https://img.shields.io/badge/Email-service@vito1317.com-red?style=for-the-badge&logo=gmail)](mailto:service@vito1317.com)
-[![Discord](https://img.shields.io/badge/Discord-vito1317-purple?style=for-the-badge&logo=discord)](https://discord.com)
-
 </div>
-
----
-
 <div align="center">
-  
-### ⚡ Fun Fact
-**My SQL injection diagram got me my first job - now I'm a full-stack engineer at two companies developing everything from web apps to mobile solutions, proving that sometimes one good idea can open multiple doors!**
-
-![Profile Views](https://komarev.com/ghpvc/?username=vito1317&color=brightgreen&style=for-the-badge)
-
+⚡ Fun Fact
+I found a Remote Code Execution (RCE) vulnerability in my university's system... instead of expelling me, they hired me as their IT Security Consultant!
 </div>
-
----
-
 <div align="center">
-  
-**💫 "學歷並非終點，實力才是起點；用熱情編寫程式，創造自己的未來。" - Vito**
-
-⭐ **If you find my projects interesting, don't forget to star them!** ⭐
-
+💫 "學歷並非終點，實力才是起點；用熱情編寫程式，創造自己的未來。" - Vito
+⭐ If you find my projects interesting, don't forget to star them! ⭐
 </div>
+
