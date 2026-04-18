@@ -5,11 +5,13 @@
         vito1317
       </h1>
       <p class="text-xl md:text-2xl text-gray-400">
-        熱愛打造酷炫網站與探索 AI 的全端開發者
+        資安研發經理 × 全端工程師 × AI 應用實踐者
       </p>
     </header>
 
     <AboutMe />
+
+    <Experience />
 
     <main class="container mx-auto px-4 pb-24">
       <h2 class="text-4xl font-bold mb-12 text-center">作品集</h2>
@@ -39,7 +41,7 @@
         </a>
       </div>
       <p class="text-gray-600 text-sm">
-        © 2025 vito1317. All Rights Reserved.
+        © 2026 vito1317. All Rights Reserved.
       </p>
     </footer>
 
@@ -54,6 +56,7 @@ import { onMounted, computed } from 'vue';
 import { useProjectStore } from '../stores/projectStore';
 import ProjectCard from '../components/ProjectCard.vue';
 import AboutMe from '../components/AboutMe.vue';
+import Experience from '../components/Experience.vue';
 
 const store = useProjectStore();
 const projects = computed(() => store.projects);

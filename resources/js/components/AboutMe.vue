@@ -13,13 +13,13 @@
           <h3 class="text-2xl font-semibold mb-4 text-teal-400">我的開發之旅</h3>
           <div class="space-y-4 text-gray-300 leading-relaxed">
             <p>
-              你好，我是 vito1317(柯瑋宸)。我的程式設計之旅始於對「解決問題」的純粹熱情。從打造實用的自動化工具，到建構完整的全端應用，我享受將一個想法從零到一，透過程式碼變為現實的整個過程。
+              你好，我是 vito1317 (柯瑋宸)，一位專注於資訊安全與 AI 應用的全端工程師。目前就讀於 <span class="text-teal-300">中華科技大學</span>，同時擔任 <span class="text-teal-300">智能悅信資訊 (IntelliTrust)</span> 的資安暨研發經理，主導企業級 SOC 與下一代 WAF 的研發，並在 <span class="text-teal-300">聚騰科技 (GTBooster)</span> 擔任前端工程師。
             </p>
             <p>
-              我的經驗涵蓋了從使用者眼前的介面（Vue.js, JavaScript）到伺服器端的穩固邏輯（Laravel, Java Spring Boot），再到與資料庫的順暢溝通（MySQL）。我不僅僅是寫程式，更是打造流暢、高效的使用者體驗。
+              我的技術路線橫跨從使用者介面（Vue.js、Three.js）到伺服器端邏輯（Laravel、Spring Boot、Python），再到滲透測試、WAF 架構與 CVE 漏洞研究。對我而言，寫程式不只是實作功能，更是用工程思維打造安全、流暢且可持續演進的系統。
             </p>
             <p>
-              近年來，我對人工智慧的潛力深深著迷。從開發整合 Gemini 模型的 Discord 機器人，到探索大型語言模型的應用，我正積極地將 AI 技術融入我的技能樹中，渴望在下一個專案中，創造出真正智慧、能與人深度互動的產品。
+              近年來我深耕於 AI 資安領域——將 Gemma / Llama 等大型語言模型進行 Fine-tuning 與 RAG 架構落地部署，打造能自動識別漏洞並提出修補建議的 AI 助手。我也曾獨立完成校園系統滲透測試並通報 CVSS 10 等級漏洞，獲延攬擔任 <span class="text-teal-300">中華科技大學</span> 資訊技術顧問。
             </p>
           </div>
         </div>
@@ -28,15 +28,33 @@
           <h3 class="text-2xl font-semibold mb-4 text-purple-400">我的技術棧</h3>
           <div class="space-y-6">
             <div>
+              <h4 class="font-bold mb-2 text-gray-400">資訊安全 (Security)</h4>
+              <div class="flex flex-wrap gap-2">
+                <span class="skill-tag">滲透測試</span>
+                <span class="skill-tag">WAF 架構設計</span>
+                <span class="skill-tag">CVE 漏洞研究</span>
+                <span class="skill-tag">SOC 建置</span>
+                <span class="skill-tag">IDS / IPS</span>
+              </div>
+            </div>
+            <div>
+              <h4 class="font-bold mb-2 text-gray-400">AI &amp; LLM</h4>
+              <div class="flex flex-wrap gap-2">
+                <span class="skill-tag">LLM Fine-tuning</span>
+                <span class="skill-tag">Gemma / Llama</span>
+                <span class="skill-tag">RAG 架構</span>
+                <span class="skill-tag">地端 AI 部署</span>
+                <span class="skill-tag">Google Gemini</span>
+              </div>
+            </div>
+            <div>
               <h4 class="font-bold mb-2 text-gray-400">前端 (Frontend)</h4>
               <div class="flex flex-wrap gap-2">
                 <span class="skill-tag">Vue.js</span>
                 <span class="skill-tag">JavaScript</span>
-                <span class="skill-tag">jQuery</span>
-                <span class="skill-tag">Bootstrap</span>
-                <span class="skill-tag">HTML5</span>
-                <span class="skill-tag">CSS3 / Tailwind</span>
                 <span class="skill-tag">Three.js</span>
+                <span class="skill-tag">Tailwind CSS</span>
+                <span class="skill-tag">Bootstrap</span>
               </div>
             </div>
             <div>
@@ -45,23 +63,16 @@
                 <span class="skill-tag">PHP / Laravel</span>
                 <span class="skill-tag">Java / Spring Boot</span>
                 <span class="skill-tag">Python</span>
-              </div>
-            </div>
-            <div>
-              <h4 class="font-bold mb-2 text-gray-400">AI & 資料庫</h4>
-              <div class="flex flex-wrap gap-2">
-                <span class="skill-tag">Google Gemini</span>
                 <span class="skill-tag">MySQL</span>
-                <span class="skill-tag">SQLite</span>
               </div>
             </div>
             <div>
-              <h4 class="font-bold mb-2 text-gray-400">其他工具 & 平台</h4>
+              <h4 class="font-bold mb-2 text-gray-400">基礎設施 (Infrastructure)</h4>
               <div class="flex flex-wrap gap-2">
-                <span class="skill-tag">Git / GitHub</span>
-                <span class="skill-tag">Discord API</span>
-                <span class="skill-tag">Chrome Extension</span>
                 <span class="skill-tag">Linux / Apache</span>
+                <span class="skill-tag">NVIDIA GPU 配置</span>
+                <span class="skill-tag">RAID / JBOD</span>
+                <span class="skill-tag">Git / GitHub</span>
               </div>
             </div>
           </div>

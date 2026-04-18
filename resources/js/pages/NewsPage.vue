@@ -81,7 +81,6 @@ const shareNews = async (newsItem) => {
 const newsItems = [
   { name: '台灣新聞聯播網', url: 'https://twnewshub.com/archives/89729' },
   { name: '台灣新聞聯播網-後續', url: 'https://twnewshub.com/archives/89871'},
-  { name: '新富族傳媒', url: 'https://e-rich.com.tw/archives/12501'},
   { name: '桃園電子報', url: 'https://tyenews.com/2025/06/881588/' },
   { name: 'LINE TODAY', url: 'https://today.line.me/tw/v2/article/DRP2ZEg' },
   { name: 'Yahoo新聞', url: 'https://reurl.cc/1O48DD' },

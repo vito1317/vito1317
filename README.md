@@ -1,9 +1,9 @@
 <div align="center">
   
 # 🚀 Hi there, I'm Vito (柯瑋宸) 
-### 💻 Security Researcher | 🌟 Tech Innovator | 🔥 Problem Solver
+### 🛡️ Security & R&D Manager | 🤖 AI Security Researcher | 💻 Full-Stack Engineer
 
-![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=36BCF7&center=true&vCenter=true&width=435&lines=19-year-old+Tech+Prodigy;IT+Consultant+%40+CUST;White+Hat+Hacker+(RCE%2FSQLi);Full-Stack+Engineer)
+![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=36BCF7&center=true&vCenter=true&width=500&lines=Security+%26+R%26D+Manager+%40+IntelliTrust;Front-end+Engineer+%40+GTBooster;IT+Consultant+%40+CUST;AI+Security+Researcher+(LLM+Fine-tuning);White+Hat+Hacker+(RCE%2FSQLi%2FCVSS+10))
 
 </div>
 
@@ -11,47 +11,65 @@
 
 ## 🎯 About Me
 
-> **"From self-taught developer to security consultant - proving that skills and practical impact speak louder than credentials."**
+> **"From self-taught developer to Security & R&D Manager — proving that practical impact and relentless self-study can outpace any credential."**
 
 🌱 **Age:** 19 years old  
-🎓 **Education:** Student at **China University of Science and Technology (CUST)** - Continuing Education Division  
-💼 **Current Roles:** - IT Consultant at **China University of Science and Technology (CUST)**
-- Full-Stack Engineer (Freelance/Independent)  
-🏠 **Location:** Taipei, Taiwan  
+🎓 **Education:** Freshman at **China University of Science and Technology (CUST)** — Continuing Education Division (2025 – Present)  
+💼 **Current Roles:**
+- 🛡️ **Security & R&D Manager** at **[IntelliTrust (智能悅信資訊)](https://intellitrustme.com/)** — leading SOC & next-gen WAF R&D
+- 🎨 **Front-end Engineer** at **[GTBooster (聚騰科技)](https://www.gtbooster.com/)** — Vue.js / Three.js interactive web apps
+- 🎓 **IT Consultant** at **[China University of Science and Technology (CUST)](https://www.cust.edu.tw/)** — campus security hardening
+
+🏠 **Location:** Xizhi, New Taipei City, Taiwan  
 🌐 **Website:** [vito1317.com](https://vito1317.com)  
 📧 **Contact:** service@vito1317.com  
 
 ### 🔥 My Journey
-- 🎨 Started with a **hand-drawn SQL injection diagram** that launched my career
-- 🛡️ **Hacked my University:** Discovered critical **RCE & SQL Injection vulnerabilities** in the school system
-- 🤝 **Hired by CUST:** Appointed as **IT Consultant** by the university to lead security remediation
-- 🎓 Declined corporate offers (including Shopee HQ) to pursue **University education**
-- 🏪 Developed automation tools while working at Shopee store
-- 🤖 Creator of AI-powered Discord bots and automation solutions
+- 🎨 Started with a **hand-drawn SQL injection diagram** that launched my engineering career
+- 🛡️ **Reported critical RCE (CVSS 10) & SQL Injection** vulnerabilities in CUST's campus system
+- 🤝 **Hired by CUST** as IT Consultant to lead remediation and long-term hardening strategy
+- 🏢 **Promoted to Security & R&D Manager** at IntelliTrust — driving AI-powered SOC & WAF products
+- 🤖 Fine-tuned **Gemma-3-12B** for cybersecurity use cases (Project Sentinel)
+- 🎤 **Invited speaker** at GDG on Campus NTNU & technical mentor at HackIt × 嘉義大學 Campfire hackathon
+- 🎓 Declined corporate offers (including Shopee HQ) to pursue **University education** while working in industry
 
 ---
 
 ## 🛠️ Tech Arsenal
 
-### Security & Backend
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+### 🛡️ Security & Offensive Research
+![Penetration Testing](https://img.shields.io/badge/Penetration_Testing-red?style=for-the-badge&logo=kalilinux&logoColor=white)
+![WAF Architecture](https://img.shields.io/badge/WAF_Architecture-B22222?style=for-the-badge&logo=cloudflare&logoColor=white)
+![CVE Research](https://img.shields.io/badge/CVE_Research-8B0000?style=for-the-badge&logo=bugcrowd&logoColor=white)
+![SOC](https://img.shields.io/badge/SOC_Operations-1E1E1E?style=for-the-badge&logo=elasticcloud&logoColor=white)
+![IDS/IPS](https://img.shields.io/badge/IDS%20%2F%20IPS-556B2F?style=for-the-badge&logo=snort&logoColor=white)
+
+### 🤖 AI & LLM Engineering
+![LLM Fine-tuning](https://img.shields.io/badge/LLM_Fine--tuning-FF6F61?style=for-the-badge&logo=huggingface&logoColor=white)
+![Gemma](https://img.shields.io/badge/Gemma_3-4285F4?style=for-the-badge&logo=google&logoColor=white)
+![Llama](https://img.shields.io/badge/Llama-0467DF?style=for-the-badge&logo=meta&logoColor=white)
+![RAG](https://img.shields.io/badge/RAG-6A5ACD?style=for-the-badge&logo=langchain&logoColor=white)
+![TensorFlow](https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)
+
+### 💻 Backend
 ![PHP](https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white)
 ![Laravel](https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)
-![SQL Injection](https://img.shields.io/badge/Security-SQLi%20%2F%20RCE-red?style=for-the-badge&logo=kalilinux&logoColor=white)
 ![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)
 ![Spring Boot](https://img.shields.io/badge/Spring_Boot-6DB33F?style=for-the-badge&logo=spring-boot&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
 
-### Frontend
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+### 🎨 Frontend
 ![Vue.js](https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D)
-![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)
+![Three.js](https://img.shields.io/badge/Three.js-000000?style=for-the-badge&logo=threedotjs&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 
-### Mobile & AI
-![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)
-![Kotlin](https://img.shields.io/badge/Kotlin-0095D5?style=for-the-badge&logo=kotlin&logoColor=white)
-![TensorFlow](https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)
+### ⚙️ Infrastructure
+![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
+![NVIDIA](https://img.shields.io/badge/NVIDIA_GPU-76B900?style=for-the-badge&logo=nvidia&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 ![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
 
 ---
@@ -130,7 +148,6 @@
 | **2025-06-25** | [**Yahoo 新聞**](https://tw.news.yahoo.com/%E5%BE%9E%E8%82%84%E6%A5%AD%E7%94%9F%E5%88%B0%E7%A7%91%E6%8A%80%E6%96%B0%E8%B2%B4-19%E6%AD%B2%E5%A5%87%E6%89%8D%E6%9F%AF%E7%91%8B%E5%AE%B8%E7%9A%84%E9%80%86%E8%A5%B2%E4%B9%8B%E8%B7%AF-%E7%8D%B2%E8%9D%A6%E7%9A%AE%E5%BB%B6%E6%94%AC%E5%85%A5%E4%B8%BB%E7%B8%BD%E9%83%A8-084007989.html) | 從肄業生到科技新貴：19歲奇才柯瑋宸的逆襲之路 |
 | **2025-06-25** | [**PChome 新聞**](https://news.pchome.com.tw/society/tyenews/20250625/index-75084080724970343002.html) | 19歲奇才獲蝦皮延攬 (Selected CUST over Shopee) |
 | **2025-06-30** | [**台灣新聞聯播網**](https://twnewshub.com/archives/89871) | 打工仔逆襲！19歲自學工程師從門市人員踏入技術核心 |
-| **2025-07-10** | [**新富族傳媒**](https://e-rich.com.tw/archives/12501) | 從後台警報到核心人才：自學程式之路 |
 | **2025-06-25** | [**資安新聞整合**](https://www.eunomics.net/posts/863) | 年輕奇才崛起：跨國攻防與聯防的新時代 |
 
 <div align="center">
