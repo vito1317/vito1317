@@ -11,6 +11,8 @@
 
     <AboutMe />
 
+    <PinnedStory />
+
     <Experience />
 
     <main class="container mx-auto px-4 pb-24">
@@ -57,6 +59,7 @@ import { useProjectStore } from '../stores/projectStore';
 import ProjectCard from '../components/ProjectCard.vue';
 import AboutMe from '../components/AboutMe.vue';
 import Experience from '../components/Experience.vue';
+import PinnedStory from '../components/PinnedStory.vue';
 
 const store = useProjectStore();
 const projects = computed(() => store.projects);
