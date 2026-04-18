@@ -80,14 +80,40 @@
 <tr>
 <td width="50%">
 
-### 🛡️ CUST Security Audit
-**University System Hardening**
-- 🕵️ Discovered **RCE** (Remote Code Execution)
-- 💉 Identified **SQL Injection** points
-- 🔒 Implemented WAF & Security Patches
-- 📝 Comprehensive Security Consulting
+### 🛡️ Security One — AI SOC Platform
+**Core R&D @ IntelliTrust**
+- 🧠 **AI-driven threat detection** & automated response
+- 🔥 Next-gen **WAF** with behavior analysis
+- 🕸️ Integrated **IDS / IPS** & anti-malware pipeline
+- 🏢 Flagship commercial product at IntelliTrust
 
-**Tech Stack:** `Penetration Testing` `PHP` `Security`
+**Tech Stack:** `WAF` `SOC` `AI Detection` `Laravel` `Python`
+
+</td>
+<td width="50%">
+
+### 🤖 Project Sentinel — AI Security Assistant
+**Fine-tuned Gemma-3-12B for Cybersecurity**
+- 🎯 Custom fine-tuned on **vulnerability datasets**
+- 🔍 Automated **vuln identification** & remediation advice
+- 🧩 On-prem deployment — no data leaves the network
+- ⚙️ RAG-augmented knowledge base
+
+**Tech Stack:** `Gemma-3-12B` `Fine-tuning` `RAG` `Python`
+
+</td>
+</tr>
+<tr>
+<td width="50%">
+
+### 🎓 CUST Security Audit & Remediation
+**University System Hardening**
+- 🕵️ Discovered **CVSS 10 RCE** vulnerability
+- 💉 Identified critical **SQL Injection** points
+- 🔒 Deployed **WAF** & security patches
+- 📝 Ongoing IT consultant engagement
+
+**Tech Stack:** `Penetration Testing` `WAF` `PHP`
 
 </td>
 <td width="50%">
@@ -96,10 +122,10 @@
 **AI-Powered Discord Assistant**
 - 🧠 **Google Gemini AI** integration
 - 💬 Smart conversational AI
-- 🎯 Mental health support features
-- ⚡ Real-time response system
+- 🎯 Mental-health support features
+- ⚡ Real-time response pipeline
 
-**Tech Stack:** `Python` `Discord.py` `Google AI`
+**Tech Stack:** `Python` `Discord.py` `Google Gemini`
 
 </td>
 </tr>
@@ -108,8 +134,8 @@
 
 ### 🛍️ [Shopee Automation Tool](https://github.com/vito1317/Shopee-Automation-tool)
 **Store Operations Automation**
-- 🔄 **Automated** repetitive tasks
-- 📢 TTS voice announcements  
+- 🔄 **Automated** repetitive workflows
+- 📢 TTS voice announcements
 - 📊 Real-time data processing
 - 🏪 Chrome extension for logistics
 
@@ -130,6 +156,15 @@
 </td>
 </tr>
 </table>
+
+---
+
+## 🎤 Speaking & Technical Mentorship
+
+| 📅 **Date** | 🎯 **Event** | 🗣️ **Role** | 📝 **Topic** |
+|-------------|--------------|-------------|--------------|
+| **2026-02** | [**Campfire Taiwan × HackIt @ 嘉義大學**](https://www.ncyu.edu.tw/ncyu/Subject/Detail/235725?nodeId=835) | Technical Mentor & Guest Speaker | 32h youth game-dev hackathon — system architecture & security guidance |
+| **2025** | [**GDG on Campus · 國立臺灣師範大學**](https://gdg.community.dev/events/details/google-gdg-on-campus-national-taiwan-normal-university-taipei-taiwan-presents-shi-jian-li-sheng-guo-xue-li-19sui-ke-wei-chen-de-ji-shu-zi-xue-yu-zhi-chang-tu-wei/) | Invited Speaker | 《實踐力勝過學歷：19歲柯瑋宸的技術自學與職場突圍》 |
 
 ---
 
@@ -174,15 +209,15 @@
 
 ## 🏆 Achievements & Recognition
 
- - 🎯 Self-taught programming from scratch
- - 🏢 **Hired as IT Consultant by CUST after identifying critical security flaws**
- - 🛡️ Successfully reported and patched RCE & SQL Injection vulnerabilities
- - 🛍️ Created automation tools used in real business operations
- - 🤖 Developed AI bots with 1000+ users
- - 🎓 Chosen to prioritize education and campus security over corporate offers
- - 📱 Mastering cross-platform mobile development with Flutter & Kotlin
- - 📺 Featured in major media outlets inspiring next generation developers
- - 🌟 Inspired countless non-CS students to pursue programming
+ - 🏢 **Promoted to Security & R&D Manager** at IntelliTrust (Dec 2025) — leading SOC + WAF product line
+ - 🎓 **Appointed IT Consultant** by CUST after independently reporting CVSS 10 RCE & SQL Injection flaws
+ - 🤖 **Fine-tuned Gemma-3-12B** to build a domain-specific AI security assistant (Project Sentinel)
+ - 🎤 **Invited speaker** at GDG on Campus · National Taiwan Normal University
+ - 👨‍🏫 **Technical mentor** at Campfire Taiwan × HackIt 32-hour youth game-dev hackathon @ NCYU
+ - 🎨 Shipped high-interaction Vue.js + Three.js products at GTBooster
+ - 🛍️ Created Chrome-extension automation tools adopted by real retail operations
+ - 📺 Featured in 20+ major Taiwanese media outlets (Yahoo, PChome, LINE TODAY, etc.)
+ - 🌟 Self-taught from scratch — proving practical impact outweighs credentials
  
 ---
 
@@ -206,10 +241,11 @@ I believe that **creativity**, **determination**, and **continuous learning** ca
 
 ## 📈 Current Focus
 
-- 🔭 **Currently working on:** IT Security Consulting at CUST & System Hardening
-- 🌱 **Currently learning:** Advanced Penetration Testing, Cyber Defense, AI/ML
-- 🎯 **Goals:** Secure academic infrastructures, launch personal SaaS products, contribute to open source
-- 💡 **Always exploring:** New ways to combine Security Research with Full-Stack Development
+- 🔭 **Currently building:** Security One AI SOC platform & next-gen WAF @ IntelliTrust
+- 🧪 **Currently researching:** LLM fine-tuning for offensive & defensive security workflows
+- 🌱 **Currently learning:** Advanced penetration testing, red-team tradecraft, on-prem GPU deployment
+- 🎯 **Goals:** Ship commercial AI-SOC products, publish original CVE research, mentor the next generation of security engineers
+- 💡 **Always exploring:** Where AI, security, and full-stack engineering intersect
 
 ---
 
@@ -228,7 +264,7 @@ I believe that **creativity**, **determination**, and **continuous learning** ca
 <div align="center">
   
 ### ⚡ Fun Fact
-**I found critical vulnerabilities (RCE & SQL Injection) in my university's system. Instead of getting in trouble, they hired me as their IT Consultant to fix it!**
+**I reported CVSS 10 RCE & SQL Injection vulnerabilities in my own university's system. Instead of getting in trouble, they hired me as their IT Consultant — and a year later I'm now leading SOC & WAF R&D at IntelliTrust.**
 
 ![Profile Views](https://komarev.com/ghpvc/?username=vito1317&color=brightgreen&style=for-the-badge)
 

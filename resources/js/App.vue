@@ -6,7 +6,9 @@
     </Transition>
     
     <ThreeDBackground />
-    
+
+    <TechHUD v-if="projectsLoaded" />
+
     <Navbar />
 
     <div v-if="projectsLoaded" class="relative z-10 pt-20"> 
@@ -30,6 +32,7 @@ import { useUiStore } from './stores/uiStore';
 import ThreeDBackground from './components/ThreeDBackground.vue';
 import LoadingScreen from './components/LoadingScreen.vue';
 import Navbar from './components/Navbar.vue';
+import TechHUD from './components/TechHUD.vue';
 
 const projectStore = useProjectStore();
 const uiStore = useUiStore();
