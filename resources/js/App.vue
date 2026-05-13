@@ -11,7 +11,7 @@
 
     <Navbar />
 
-    <div v-if="projectsLoaded" class="relative z-10 pt-20"> 
+    <div v-if="projectsLoaded" class="relative z-10 pt-16 sm:pt-20">
       <router-view v-slot="{ Component }">
         <Transition name="page-fade">
           <component :is="Component" />

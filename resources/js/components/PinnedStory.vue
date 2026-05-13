@@ -14,10 +14,9 @@
       </div>
 
       <svg
-        class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
-        width="min(90vmin, 720px)"
-        height="min(90vmin, 720px)"
+        class="rings-svg absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
         viewBox="0 0 400 400"
+        preserveAspectRatio="xMidYMid meet"
       >
         <defs>
           <linearGradient id="ringGradA" x1="0" y1="0" x2="1" y2="1">
@@ -44,18 +43,18 @@
         </g>
       </svg>
 
-      <div class="relative container mx-auto px-6 z-10">
-        <div class="flex items-center gap-4 mb-4" data-aos="fade-right">
+      <div class="relative container mx-auto px-4 sm:px-6 z-10 max-w-full">
+        <div class="flex flex-wrap items-center gap-x-3 gap-y-1 mb-3 sm:mb-4" data-aos="fade-right">
           <span class="hud-bar" :style="{ background: `linear-gradient(to right, transparent, ${currentAccent})`, boxShadow: `0 0 8px ${currentAccent}` }"></span>
-          <span class="text-xs tracking-[0.3em] font-mono uppercase" :style="{ color: currentAccent }">
-            CHAPTER {{ String(activeIndex + 1).padStart(2, '0') }} / {{ String(acts.length).padStart(2, '0') }}
+          <span class="text-[10px] sm:text-xs tracking-[0.25em] sm:tracking-[0.3em] font-mono uppercase" :style="{ color: currentAccent }">
+            CH {{ String(activeIndex + 1).padStart(2, '0') }} / {{ String(acts.length).padStart(2, '0') }}
           </span>
-          <span class="text-xs tracking-[0.2em] font-mono uppercase text-gray-500">
-            · PROGRESS {{ (progress * 100).toFixed(0) }}%
+          <span class="text-[10px] sm:text-xs tracking-[0.2em] font-mono uppercase text-gray-500">
+            · {{ (progress * 100).toFixed(0) }}%
           </span>
         </div>
 
-        <div class="relative min-h-[360px] md:min-h-[400px]">
+        <div class="relative min-h-[420px] sm:min-h-[380px] md:min-h-[400px]">
           <Transition
             v-for="(act, i) in acts"
             :key="act.title"
@@ -65,25 +64,25 @@
               v-show="activeIndex === i"
               class="absolute inset-0"
             >
-              <p class="text-sm md:text-base font-mono tracking-widest mb-4" :style="{ color: act.accent }">
+              <p class="text-xs sm:text-sm md:text-base font-mono tracking-widest mb-3 sm:mb-4" :style="{ color: act.accent }">
                 <span class="terminal-prompt">┌─</span>
                 <span class="ml-2">{{ act.tag }}</span>
               </p>
               <h2
-                class="glitch text-4xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight"
+                class="glitch text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black mb-4 sm:mb-6 leading-tight break-keep"
                 :data-text="stripTags(act.title)"
                 :style="{ '--accent': act.accent }"
               >
                 <span v-html="act.title"></span>
               </h2>
 
-              <p class="text-base md:text-xl text-gray-300 leading-relaxed max-w-3xl mb-6 font-mono">
+              <p class="text-sm sm:text-base md:text-xl text-gray-300 leading-relaxed max-w-3xl mb-4 sm:mb-6 font-mono pr-6 sm:pr-0">
                 <span class="terminal-prompt mr-2" :style="{ color: act.accent }">&gt;</span>
                 <span>{{ typed[i] }}</span>
                 <span v-if="activeIndex === i" class="caret" :style="{ background: act.accent }"></span>
               </p>
 
-              <div class="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-3xl mb-6">
+              <div class="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-3 max-w-3xl mb-4 sm:mb-6">
                 <div
                   v-for="(stat, si) in act.stats"
                   :key="stat.label"
@@ -99,7 +98,7 @@
                 </div>
               </div>
 
-              <div class="flex flex-wrap gap-3">
+              <div class="flex flex-wrap gap-2 sm:gap-3">
                 <span
                   v-for="kw in act.keywords"
                   :key="kw"
@@ -114,7 +113,7 @@
         </div>
       </div>
 
-      <div class="absolute right-6 md:right-10 top-1/2 -translate-y-1/2 flex flex-col gap-6 z-20">
+      <div class="dot-nav absolute right-3 sm:right-6 md:right-10 top-1/2 -translate-y-1/2 flex flex-col gap-4 sm:gap-6 z-20">
         <div
           v-for="(act, i) in acts"
           :key="act.title + '_dot'"
@@ -126,8 +125,8 @@
         </div>
       </div>
 
-      <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2">
-        <span class="text-[10px] tracking-[0.3em] text-cyan-300/70 font-mono animate-pulse">▼ SCROLL ▼</span>
+      <div class="absolute bottom-4 sm:bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2">
+        <span class="text-[9px] sm:text-[10px] tracking-[0.25em] sm:tracking-[0.3em] text-cyan-300/70 font-mono animate-pulse">▼ SCROLL ▼</span>
         <div class="progress-rail">
           <div class="progress-fill" :style="{ height: (progress * 100) + '%' }"></div>
         </div>
@@ -178,11 +177,11 @@ const acts = [
   {
     tag: 'ACT_03 · IMPACT',
     shortLabel: 'YOU',
-    title: '19 歲，<br/><span class="accent-text">從自學者走進產業核心</span>。',
+    title: '20 歲，<br/><span class="accent-text">從自學者走進產業核心</span>。',
     body: '通報校園 CVSS 10 RCE 漏洞、受邀擔任大學技術顧問、在 GDG 與 HackIt 演講、領導企業級資安產品 — 用實力證明：學歷不是終點，實踐才是起點。',
     keywords: ['CVSS 10', 'Speaker', 'Consultant', 'Manager'],
     stats: [
-      { label: 'Years Old', value: 19 },
+      { label: 'Years Old', value: 20 },
       { label: 'Media Coverage', value: 20, suffix: '+' },
       { label: 'Talks Given', value: 2, suffix: '+' },
       { label: 'Roles', value: 3 },
@@ -192,7 +191,7 @@ const acts = [
   },
 ];
 
-const stripTags = (html) => html.replace(/<[^>]*>/g, '');
+const stripTags = (html) => html.replace(/<br\s*\/?>/gi, '\n').replace(/<[^>]*>/g, '');
 
 const sectionRef = ref(null);
 const rainCanvas = ref(null);
@@ -348,6 +347,17 @@ onUnmounted(() => {
   text-shadow: 0 0 18px var(--accent, #22e0ff), 0 0 2px #fff;
 }
 
+.rings-svg {
+  width: min(100vmin, 720px);
+  height: min(100vmin, 720px);
+}
+@media (max-width: 768px) {
+  .rings-svg { width: min(110vmin, 520px); height: min(110vmin, 520px); opacity: 0.55; }
+}
+@media (max-width: 480px) {
+  .rings-svg { opacity: 0.4; }
+}
+
 .grid-bg {
   background-image:
     linear-gradient(rgba(34, 224, 255, 0.08) 1px, transparent 1px),
@@ -407,6 +417,7 @@ onUnmounted(() => {
   inset: 0;
   pointer-events: none;
   opacity: 0.7;
+  white-space: pre-line;
 }
 .glitch::before {
   color: var(--accent, #22e0ff);
@@ -419,6 +430,9 @@ onUnmounted(() => {
   transform: translate(2px, 0);
   clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
   animation: glitchB 4.2s infinite linear alternate-reverse;
+}
+@media (max-width: 768px) {
+  .glitch::before, .glitch::after { display: none; }
 }
 @keyframes glitchA {
   0%, 88%, 100% { transform: translate(-2px, 0); }
@@ -441,6 +455,10 @@ onUnmounted(() => {
   backdrop-filter: blur(6px);
   animation: statIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  min-width: 0;
+}
+@media (max-width: 640px) {
+  .stat-card { padding: 8px 10px; }
 }
 .stat-card:hover {
   transform: translateY(-3px);
@@ -452,29 +470,35 @@ onUnmounted(() => {
 }
 .stat-value {
   font-family: ui-monospace, 'Fira Code', monospace;
-  font-size: 22px;
+  font-size: clamp(16px, 3.8vw, 22px);
   font-weight: 700;
   letter-spacing: 0.04em;
   line-height: 1;
   text-shadow: 0 0 12px currentColor;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .stat-suffix {
-  font-size: 14px;
+  font-size: 0.7em;
   opacity: 0.7;
   margin-left: 2px;
 }
 .stat-label {
   margin-top: 4px;
-  font-size: 10px;
+  font-size: clamp(9px, 2vw, 10px);
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.5);
   font-family: ui-monospace, monospace;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .keyword-chip {
-  padding: 6px 14px;
-  font-size: 12px;
+  padding: 5px 10px;
+  font-size: clamp(10px, 2.4vw, 12px);
   font-family: ui-monospace, 'Fira Code', monospace;
   letter-spacing: 0.08em;
   border: 1px solid;
@@ -483,15 +507,21 @@ onUnmounted(() => {
   backdrop-filter: blur(4px);
   transition: transform 0.25s ease;
 }
+@media (min-width: 640px) {
+  .keyword-chip { padding: 6px 14px; }
+}
 .keyword-chip:hover { transform: translateY(-2px); }
 
 .dot {
   position: relative;
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.18);
   transition: all 0.4s ease;
+}
+@media (min-width: 640px) {
+  .dot { width: 10px; height: 10px; }
 }
 .dot::after {
   content: '';
@@ -511,17 +541,23 @@ onUnmounted(() => {
 }
 .dot-label {
   position: absolute;
-  right: 22px;
+  right: 18px;
   top: 50%;
   transform: translateY(-50%);
   white-space: nowrap;
-  font-size: 10px;
+  font-size: 9px;
   font-family: ui-monospace, 'Fira Code', monospace;
   letter-spacing: 0.2em;
   color: var(--dot-color);
   opacity: 0;
   transition: opacity 0.3s ease;
   pointer-events: none;
+}
+@media (min-width: 640px) {
+  .dot-label { right: 22px; font-size: 10px; }
+}
+@media (max-width: 480px) {
+  .dot-label { display: none; }
 }
 .dot.active .dot-label { opacity: 0.9; }
 @keyframes pulseRing {
@@ -545,15 +581,24 @@ onUnmounted(() => {
 
 .corner-bracket {
   position: absolute;
-  width: 32px;
-  height: 32px;
+  width: 20px;
+  height: 20px;
   border: 1px solid rgba(34, 224, 255, 0.5);
   filter: drop-shadow(0 0 4px rgba(34, 224, 255, 0.5));
 }
-.corner-bracket.top-left     { top: 16px; left: 16px; border-right: none; border-bottom: none; }
-.corner-bracket.top-right    { top: 16px; right: 16px; border-left: none; border-bottom: none; border-color: #ff2bd6; filter: drop-shadow(0 0 4px #ff2bd6); }
-.corner-bracket.bottom-left  { bottom: 16px; left: 16px; border-right: none; border-top: none; border-color: #ff2bd6; filter: drop-shadow(0 0 4px #ff2bd6); }
-.corner-bracket.bottom-right { bottom: 16px; right: 16px; border-left: none; border-top: none; }
+@media (min-width: 640px) {
+  .corner-bracket { width: 32px; height: 32px; }
+}
+.corner-bracket.top-left     { top: 76px; left: 10px; border-right: none; border-bottom: none; }
+.corner-bracket.top-right    { top: 76px; right: 10px; border-left: none; border-bottom: none; border-color: #ff2bd6; filter: drop-shadow(0 0 4px #ff2bd6); }
+.corner-bracket.bottom-left  { bottom: 10px; left: 10px; border-right: none; border-top: none; border-color: #ff2bd6; filter: drop-shadow(0 0 4px #ff2bd6); }
+.corner-bracket.bottom-right { bottom: 10px; right: 10px; border-left: none; border-top: none; }
+@media (min-width: 640px) {
+  .corner-bracket.top-left, .corner-bracket.top-right { top: 92px; }
+  .corner-bracket.bottom-left, .corner-bracket.bottom-right { bottom: 16px; }
+  .corner-bracket.top-left, .corner-bracket.bottom-left { left: 16px; }
+  .corner-bracket.top-right, .corner-bracket.bottom-right { right: 16px; }
+}
 
 .act-enter-active,
 .act-leave-active {

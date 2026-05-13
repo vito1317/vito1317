@@ -36,14 +36,18 @@ const onWindowScroll = () => {
   }
 };
 
+const isMobile = () => window.innerWidth < 768;
+
 onMounted(() => {
+  const mobile = isMobile();
+
   scene = new THREE.Scene();
   scene.fog = new THREE.FogExp2(0x05060f, 0.012);
 
   camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.1, 1000);
-  renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+  renderer = new THREE.WebGLRenderer({ antialias: !mobile, alpha: true, powerPreference: 'high-performance' });
   renderer.setSize(window.innerWidth, window.innerHeight);
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, mobile ? 1.5 : 2));
   renderer.setClearColor(0x000000, 0);
   canvasContainer.value.appendChild(renderer.domElement);
   camera.position.z = targetCameraZ;
@@ -82,7 +86,8 @@ onMounted(() => {
   ];
   const wireColors = [0x22e0ff, 0xff2bd6, 0x7b5bff, 0x5effa7];
 
-  for (let i = 0; i < 80; i++) {
+  const wireCount = mobile ? 35 : 80;
+  for (let i = 0; i < wireCount; i++) {
     const geo = wireGeometries[Math.floor(Math.random() * wireGeometries.length)];
     const color = wireColors[Math.floor(Math.random() * wireColors.length)];
 
@@ -169,7 +174,7 @@ onMounted(() => {
   }
 
   const particlesGeometry = new THREE.BufferGeometry();
-  const particlesCount = 4000;
+  const particlesCount = mobile ? 1500 : 4000;
   const positions = new Float32Array(particlesCount * 3);
   const colors = new Float32Array(particlesCount * 3);
   const palette = [
@@ -335,9 +340,11 @@ onMounted(() => {
   const onWindowResize = () => {
     const width = window.innerWidth;
     const height = window.innerHeight;
+    const nowMobile = isMobile();
     camera.aspect = width / height;
     camera.updateProjectionMatrix();
     renderer.setSize(width, height);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, nowMobile ? 1.5 : 2));
     composer.setSize(width, height);
   };
 

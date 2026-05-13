@@ -154,6 +154,12 @@ onUnmounted(() => {
 
 @media (max-width: 768px) {
   .hud-status { font-size: 9px; padding: 4px 10px; gap: 6px; }
-  .hud-bracket { width: 40px; height: 40px; }
+  .hud-bracket { width: 36px; height: 36px; }
+  /* Avoid overlapping the mobile navbar (h-16 = 64px) and browser UI */
+  .hud-top { display: none; }
+  .hud-bottom { bottom: 10px; }
+}
+@media (max-width: 480px) {
+  .hud-bracket.top-left, .hud-bracket.top-right { display: none; }
 }
 </style>

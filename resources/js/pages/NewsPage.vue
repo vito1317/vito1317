@@ -1,9 +1,9 @@
 <template>
-  <div class="container mx-auto px-4 py-24 pt-20">
-    <h1 class="text-4xl md:text-5xl font-bold mb-16 text-center" data-aos="fade-down">新聞報導</h1>
-    
+  <div class="container mx-auto px-4 py-12 sm:py-24 pt-20">
+    <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-10 sm:mb-16 text-center" data-aos="fade-down">新聞報導</h1>
+
     <div class="relative">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
         <div
           v-for="(item, index) in newsItems"
           :key="item.name"

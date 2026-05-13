@@ -3,7 +3,7 @@
 # 🚀 Hi there, I'm Vito (柯瑋宸) 
 ### 🛡️ Security & R&D Manager | 🤖 AI Security Researcher | 💻 Full-Stack Engineer
 
-![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=36BCF7&center=true&vCenter=true&width=500&lines=Security+%26+R%26D+Manager+%40+IntelliTrust;Front-end+Engineer+%40+GTBooster;IT+Consultant+%40+CUST;AI+Security+Researcher+(LLM+Fine-tuning);White+Hat+Hacker+(RCE%2FSQLi%2FCVSS+10))
+![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=36BCF7&center=true&vCenter=true&width=520&lines=20yo+Security+%26+R%26D+Manager+%40+IntelliTrust;Front-end+Engineer+%40+GTBooster;IT+Consultant+%40+CUST;AI+Security+Researcher+(LLM+Fine-tuning);White+Hat+Hacker+(RCE%2FSQLi%2FCVSS+10))
 
 </div>
 
@@ -13,7 +13,7 @@
 
 > **"From self-taught developer to Security & R&D Manager — proving that practical impact and relentless self-study can outpace any credential."**
 
-🌱 **Age:** 19 years old  
+🌱 **Age:** 20 years old  
 🎓 **Education:** Freshman at **China University of Science and Technology (CUST)** — Continuing Education Division (2025 – Present)  
 💼 **Current Roles:**
 - 🛡️ **Security & R&D Manager** at **[IntelliTrust (智能悅信資訊)](https://intellitrustme.com/)** — leading SOC & next-gen WAF R&D

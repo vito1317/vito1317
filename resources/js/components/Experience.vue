@@ -1,17 +1,17 @@
 <template>
-  <section class="container mx-auto px-4 py-20" id="experience">
+  <section class="container mx-auto px-4 py-12 sm:py-20" id="experience">
     <div
-      class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 md:p-12 border border-gray-700/50"
+      class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-5 sm:p-8 md:p-12 border border-gray-700/50"
       data-aos="fade-up"
       data-aos-duration="1000"
     >
-      <h2 class="text-4xl font-bold mb-12 text-center">經歷 &amp; 活動</h2>
+      <h2 class="text-3xl sm:text-4xl font-bold mb-8 sm:mb-12 text-center">經歷 &amp; 活動</h2>
 
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
 
         <div data-aos="fade-right" data-aos-delay="200">
-          <h3 class="text-2xl font-semibold mb-6 text-teal-400">專業經歷</h3>
-          <div class="relative border-l-2 border-teal-500/40 pl-6 space-y-8">
+          <h3 class="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 text-teal-400">專業經歷</h3>
+          <div class="relative border-l-2 border-teal-500/40 pl-5 sm:pl-6 space-y-6 sm:space-y-8">
             <div
               v-for="(job, index) in experiences"
               :key="job.company"
@@ -19,52 +19,52 @@
               data-aos="fade-up"
               :data-aos-delay="150 * index"
             >
-              <span class="absolute -left-[34px] top-1 w-4 h-4 rounded-full bg-teal-400 ring-4 ring-teal-500/20"></span>
-              <p class="text-sm text-gray-400 mb-1">{{ job.period }}</p>
-              <h4 class="text-lg font-bold text-white">{{ job.title }}</h4>
+              <span class="absolute -left-[28px] sm:-left-[34px] top-1 w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-teal-400 ring-4 ring-teal-500/20"></span>
+              <p class="text-xs sm:text-sm text-gray-400 mb-1">{{ job.period }}</p>
+              <h4 class="text-base sm:text-lg font-bold text-white leading-snug">{{ job.title }}</h4>
               <a
                 v-if="job.url"
                 :href="job.url"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="text-teal-300 hover:text-teal-200 transition-colors text-sm"
+                class="text-teal-300 hover:text-teal-200 transition-colors text-xs sm:text-sm break-words"
               >
                 {{ job.company }} ↗
               </a>
-              <p v-else class="text-teal-300 text-sm">{{ job.company }}</p>
+              <p v-else class="text-teal-300 text-xs sm:text-sm">{{ job.company }}</p>
               <p class="text-gray-300 mt-2 leading-relaxed text-sm">{{ job.description }}</p>
             </div>
           </div>
         </div>
 
         <div data-aos="fade-left" data-aos-delay="400">
-          <h3 class="text-2xl font-semibold mb-6 text-purple-400">演講 &amp; 活動</h3>
-          <div class="space-y-6">
+          <h3 class="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 text-purple-400">演講 &amp; 活動</h3>
+          <div class="space-y-4 sm:space-y-6">
             <a
               v-for="(event, index) in events"
               :key="event.title"
               :href="event.url"
               target="_blank"
               rel="noopener noreferrer"
-              class="block p-5 rounded-xl bg-gray-900/50 border border-gray-700/50 hover:border-purple-400/60 hover:-translate-y-1 transition-all duration-300"
+              class="block p-4 sm:p-5 rounded-xl bg-gray-900/50 border border-gray-700/50 hover:border-purple-400/60 hover:-translate-y-1 transition-all duration-300"
               data-aos="fade-up"
               :data-aos-delay="150 * index"
             >
-              <div class="flex items-center justify-between mb-2">
-                <span class="text-xs text-purple-300 bg-purple-500/10 px-2 py-1 rounded-full">{{ event.role }}</span>
-                <span class="text-xs text-gray-400">{{ event.date }}</span>
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                <span class="text-[10px] sm:text-xs text-purple-300 bg-purple-500/10 px-2 py-1 rounded-full">{{ event.role }}</span>
+                <span class="text-[10px] sm:text-xs text-gray-400">{{ event.date }}</span>
               </div>
-              <h4 class="text-lg font-bold text-white mb-1">{{ event.title }}</h4>
-              <p class="text-sm text-gray-400 mb-2">{{ event.organizer }}</p>
-              <p class="text-sm text-gray-300 leading-relaxed">{{ event.description }}</p>
+              <h4 class="text-base sm:text-lg font-bold text-white mb-1 leading-snug break-words">{{ event.title }}</h4>
+              <p class="text-xs sm:text-sm text-gray-400 mb-2 break-words">{{ event.organizer }}</p>
+              <p class="text-xs sm:text-sm text-gray-300 leading-relaxed">{{ event.description }}</p>
             </a>
           </div>
 
-          <h3 class="text-2xl font-semibold mt-10 mb-4 text-pink-400">教育背景</h3>
-          <div class="p-5 rounded-xl bg-gray-900/50 border border-gray-700/50">
-            <p class="text-sm text-gray-400 mb-1">2025 – 至今</p>
-            <h4 class="text-lg font-bold text-white">中華科技大學</h4>
-            <p class="text-sm text-gray-300 mt-1">資訊工程相關系所（進修部）· 大一在學中</p>
+          <h3 class="text-xl sm:text-2xl font-semibold mt-8 sm:mt-10 mb-4 text-pink-400">教育背景</h3>
+          <div class="p-4 sm:p-5 rounded-xl bg-gray-900/50 border border-gray-700/50">
+            <p class="text-xs sm:text-sm text-gray-400 mb-1">2025 – 至今</p>
+            <h4 class="text-base sm:text-lg font-bold text-white">中華科技大學</h4>
+            <p class="text-xs sm:text-sm text-gray-300 mt-1">資訊工程相關系所（進修部）· 大一在學中</p>
           </div>
         </div>
       </div>

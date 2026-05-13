@@ -1,17 +1,17 @@
 <template>
-  <section class="container mx-auto px-4 py-20" id="about-me">
-    <div 
-      class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 md:p-12 border border-gray-700/50"
-      data-aos="fade-up" 
+  <section class="container mx-auto px-4 py-12 sm:py-20" id="about-me">
+    <div
+      class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-5 sm:p-8 md:p-12 border border-gray-700/50"
+      data-aos="fade-up"
       data-aos-duration="1000"
     >
-      <h2 class="text-4xl font-bold mb-12 text-center">關於我 & 技能</h2>
+      <h2 class="text-3xl sm:text-4xl font-bold mb-8 sm:mb-12 text-center">關於我 & 技能</h2>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16">
         
         <div data-aos="fade-right" data-aos-delay="200">
-          <h3 class="text-2xl font-semibold mb-4 text-teal-400">我的開發之旅</h3>
-          <div class="space-y-4 text-gray-300 leading-relaxed">
+          <h3 class="text-xl sm:text-2xl font-semibold mb-4 text-teal-400">我的開發之旅</h3>
+          <div class="space-y-4 text-sm sm:text-base text-gray-300 leading-relaxed">
             <p>
               你好，我是 vito1317 (柯瑋宸)，一位專注於資訊安全與 AI 應用的全端工程師。目前就讀於 <span class="text-teal-300">中華科技大學</span>，同時擔任 <span class="text-teal-300">智能悅信資訊 (IntelliTrust)</span> 的資安暨研發經理，主導企業級 SOC 與下一代 WAF 的研發，並在 <span class="text-teal-300">聚騰科技 (GTBooster)</span> 擔任前端工程師。
             </p>
@@ -25,7 +25,7 @@
         </div>
 
         <div data-aos="fade-left" data-aos-delay="400">
-          <h3 class="text-2xl font-semibold mb-4 text-purple-400">我的技術棧</h3>
+          <h3 class="text-xl sm:text-2xl font-semibold mb-4 text-purple-400">我的技術棧</h3>
           <div class="space-y-6">
             <div>
               <h4 class="font-bold mb-2 text-gray-400">資訊安全 (Security)</h4>
@@ -87,6 +87,6 @@
 
 <style scoped>
 .skill-tag {
-  @apply bg-gray-700 text-gray-300 px-3 py-1 rounded-full text-sm font-medium transition-colors duration-200 hover:bg-gray-600;
+  @apply bg-gray-700 text-gray-300 px-2.5 py-1 rounded-full text-xs sm:text-sm font-medium transition-colors duration-200 hover:bg-gray-600;
 }
 </style>
