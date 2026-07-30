@@ -178,8 +178,8 @@ const acts = [
     tag: 'ACT_03 · IMPACT',
     shortLabel: 'YOU',
     title: '20 歲，<br/><span class="accent-text">從自學者走進產業核心</span>。',
-    body: '通報校園 CVSS 10 RCE 漏洞、受邀擔任大學技術顧問、在 GDG 與 HackIt 演講、領導企業級資安產品 — 用實力證明：學歷不是終點，實踐才是起點。',
-    keywords: ['CVSS 10', 'Speaker', 'Consultant', 'Manager'],
+    body: '通報校園 CVSS 9.8 RCE 漏洞、受邀擔任大學技術顧問、在 GDG 與 HackIt 演講、領導企業級資安產品 — 用實力證明：學歷不是終點，實踐才是起點。',
+    keywords: ['CVSS 9.8', 'Speaker', 'Consultant', 'Manager'],
     stats: [
       { label: 'Years Old', value: 20 },
       { label: 'Media Coverage', value: 20, suffix: '+' },

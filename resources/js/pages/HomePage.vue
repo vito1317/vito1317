@@ -1,13 +1,13 @@
 <template>
   <div class="pt-20">
     <header class="container mx-auto px-4 py-16 sm:py-24 text-center">
-      <h1 class="text-4xl sm:text-5xl md:text-7xl font-bold mb-3 sm:mb-4">
-        vito1317
-      </h1>
+      <h1 v-decrypt class="text-4xl sm:text-5xl md:text-7xl font-bold mb-3 sm:mb-4">vito1317</h1>
       <p class="text-base sm:text-xl md:text-2xl text-gray-400 leading-relaxed">
         資安研發經理 × 全端工程師 × AI 應用實踐者
       </p>
     </header>
+
+    <Fixed3DScroll />
 
     <AboutMe />
 
@@ -60,6 +60,7 @@ import ProjectCard from '../components/ProjectCard.vue';
 import AboutMe from '../components/AboutMe.vue';
 import Experience from '../components/Experience.vue';
 import PinnedStory from '../components/PinnedStory.vue';
+import Fixed3DScroll from '../components/Fixed3DScroll.vue';
 
 const store = useProjectStore();
 const projects = computed(() => store.projects);

@@ -1,0 +1,55 @@
+/* ---------------------------------------------------------------
+   Tech Motion — 科技感進場動畫系統
+   由 resources/js/utils/techReveal.js 驅動既有的 [data-aos] 標記：
+   .tr-pre = JS 綁定時的隱藏初始態（無 JS 時元素保持可見）
+   .tr-in  = 進入視口後的揭示態，結束後兩個 class 都會被移除
+   注意：.tr-in 規則必須排在所有 .tr-pre 變體之後（同權重靠順序覆寫）
+   --------------------------------------------------------------- */
+
+/* 預設（fade-up 與其他值）：由下而上的掃描揭示 */
+.tr-pre {
+  opacity: 0;
+  transform: translateY(26px) scale(0.985);
+  clip-path: inset(58% 0 0 0);
+  will-change: transform, opacity, clip-path;
+  pointer-events: none;
+}
+
+/* 頁面大標：由上而下掃描 */
+.tr-pre[data-aos='fade-down'] {
+  transform: translateY(-18px);
+  clip-path: inset(0 0 58% 0);
+}
+
+/* 區段標題：由左至右掃描線 */
+.tr-pre[data-aos='fade-right'] {
+  transform: translateX(-26px);
+  clip-path: inset(0 62% 0 0);
+}
+
+.tr-pre[data-aos='fade-left'] {
+  transform: translateX(26px);
+  clip-path: inset(0 0 0 62%);
+}
+
+.tr-in[data-aos] {
+  opacity: 1;
+  transform: none;
+  clip-path: inset(0 0 0 0);
+  transition:
+    opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+    clip-path 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tr-pre,
+  .tr-in[data-aos] {
+    opacity: 1;
+    transform: none;
+    clip-path: none;
+    transition: none;
+    pointer-events: auto;
+  }
+}

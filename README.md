@@ -3,7 +3,7 @@
 # 🚀 Hi there, I'm Vito (柯瑋宸) 
 ### 🛡️ Security & R&D Manager | 🤖 AI Security Researcher | 💻 Full-Stack Engineer
 
-![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=36BCF7&center=true&vCenter=true&width=520&lines=20yo+Security+%26+R%26D+Manager+%40+IntelliTrust;Front-end+Engineer+%40+GTBooster;IT+Consultant+%40+CUST;AI+Security+Researcher+(LLM+Fine-tuning);White+Hat+Hacker+(RCE%2FSQLi%2FCVSS+10))
+![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=36BCF7&center=true&vCenter=true&width=520&lines=20yo+Security+%26+R%26D+Manager+%40+IntelliTrust;Front-end+Engineer+%40+GTBooster;IT+Consultant+%40+CUST;AI+Security+Researcher+(LLM+Fine-tuning);White+Hat+Hacker+(RCE%2FSQLi%2FCVSS+9.8))
 
 </div>
 
@@ -26,7 +26,7 @@
 
 ### 🔥 My Journey
 - 🎨 Started with a **hand-drawn SQL injection diagram** that launched my engineering career
-- 🛡️ **Reported critical RCE (CVSS 10) & SQL Injection** vulnerabilities in CUST's campus system
+- 🛡️ **Reported critical RCE (CVSS 9.8) & SQL Injection** vulnerabilities in CUST's campus system
 - 🤝 **Hired by CUST** as IT Consultant to lead remediation and long-term hardening strategy
 - 🏢 **Promoted to Security & R&D Manager** at IntelliTrust — driving AI-powered SOC & WAF products
 - 🤖 Fine-tuned **Gemma-3-12B** for cybersecurity use cases (Project Sentinel)
@@ -108,7 +108,7 @@
 
 ### 🎓 CUST Security Audit & Remediation
 **University System Hardening**
-- 🕵️ Discovered **CVSS 10 RCE** vulnerability
+- 🕵️ Discovered **CVSS 9.8 RCE** vulnerability
 - 💉 Identified critical **SQL Injection** points
 - 🔒 Deployed **WAF** & security patches
 - 📝 Ongoing IT consultant engagement
@@ -210,7 +210,7 @@
 ## 🏆 Achievements & Recognition
 
  - 🏢 **Promoted to Security & R&D Manager** at IntelliTrust (Dec 2025) — leading SOC + WAF product line
- - 🎓 **Appointed IT Consultant** by CUST after independently reporting CVSS 10 RCE & SQL Injection flaws
+ - 🎓 **Appointed IT Consultant** by CUST after independently reporting CVSS 9.8 RCE & SQL Injection flaws
  - 🤖 **Fine-tuned Gemma-3-12B** to build a domain-specific AI security assistant (Project Sentinel)
  - 🎤 **Invited speaker** at GDG on Campus · National Taiwan Normal University
  - 👨‍🏫 **Technical mentor** at Campfire Taiwan × HackIt 32-hour youth game-dev hackathon @ NCYU
@@ -264,7 +264,7 @@ I believe that **creativity**, **determination**, and **continuous learning** ca
 <div align="center">
   
 ### ⚡ Fun Fact
-**I reported CVSS 10 RCE & SQL Injection vulnerabilities in my own university's system. Instead of getting in trouble, they hired me as their IT Consultant — and a year later I'm now leading SOC & WAF R&D at IntelliTrust.**
+**I reported CVSS 9.8 RCE & SQL Injection vulnerabilities in my own university's system. Instead of getting in trouble, they hired me as their IT Consultant — and a year later I'm now leading SOC & WAF R&D at IntelliTrust.**
 
 ![Profile Views](https://komarev.com/ghpvc/?username=vito1317&color=brightgreen&style=for-the-badge)
 

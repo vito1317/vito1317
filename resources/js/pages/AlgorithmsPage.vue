@@ -1,10 +1,13 @@
 <template>
+  <div>
   <div class="container mx-auto px-4 py-12 sm:py-24 pt-20">
-    <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-center" data-aos="fade-down">演算法研究</h1>
+    <h1 v-decrypt class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-center" data-aos="fade-down">演算法研究</h1>
     <p class="text-gray-400 text-center mb-12 sm:mb-16 max-w-3xl mx-auto leading-relaxed" data-aos="fade-down" data-aos-delay="100">
       原創演算法的研究紀錄——包含預先登記的證偽條件、誠實發表的負面結果，
       以及在生產環境持續運作的機器學習引擎
     </p>
+
+    <AlgorithmCoreScroll />
 
     <!-- 載入中骨架 -->
     <div v-if="loading" class="max-w-5xl mx-auto space-y-8">
@@ -128,6 +131,7 @@
       返回 <router-link to="/" class="text-teal-400 hover:underline">首頁</router-link>
     </p>
   </footer>
+  </div>
 </template>
 
 <script setup>
@@ -136,6 +140,7 @@ defineOptions({
 });
 import { ref, onMounted } from 'vue';
 import axios from 'axios';
+import AlgorithmCoreScroll from '../components/AlgorithmCoreScroll.vue';
 
 const algorithms = ref([]);
 const loading = ref(true);

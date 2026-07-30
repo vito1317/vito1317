@@ -1,9 +1,12 @@
 <template>
+  <div>
   <div class="container mx-auto px-4 py-12 sm:py-24 pt-20">
-    <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-center" data-aos="fade-down">GitHub 專區</h1>
+    <h1 v-decrypt class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-center" data-aos="fade-down">GitHub 專區</h1>
     <p class="text-gray-400 text-center mb-10 sm:mb-14 max-w-2xl mx-auto" data-aos="fade-down" data-aos-delay="100">
       自動追蹤我在 GitHub 上的原創專案，依最近 {{ recentDays }} 天的 commit 活躍度排序
     </p>
+
+    <GithubGraphScroll :repos="repos" />
 
     <!-- 統計摘要 -->
     <div v-if="!loading && !error && repos.length" class="flex flex-wrap justify-center gap-4 sm:gap-6 mb-10 sm:mb-14" data-aos="fade-up">
@@ -104,6 +107,7 @@
       返回 <router-link to="/" class="text-teal-400 hover:underline">首頁</router-link>
     </p>
   </footer>
+  </div>
 </template>
 
 <script setup>
@@ -113,6 +117,7 @@ defineOptions({
 import { ref, computed, onMounted } from 'vue';
 import axios from 'axios';
 import RepoCard from '../components/RepoCard.vue';
+import GithubGraphScroll from '../components/GithubGraphScroll.vue';
 
 const repos = ref([]);
 const recentDays = ref(30);

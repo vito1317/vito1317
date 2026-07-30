@@ -19,7 +19,7 @@
               我的技術路線橫跨從使用者介面（Vue.js、Three.js）到伺服器端邏輯（Laravel、Spring Boot、Python），再到滲透測試、WAF 架構與 CVE 漏洞研究。對我而言，寫程式不只是實作功能，更是用工程思維打造安全、流暢且可持續演進的系統。
             </p>
             <p>
-              近年來我深耕於 AI 資安領域——將 Gemma / Llama 等大型語言模型進行 Fine-tuning 與 RAG 架構落地部署，打造能自動識別漏洞並提出修補建議的 AI 助手。我也曾獨立完成校園系統滲透測試並通報 CVSS 10 等級漏洞，獲延攬擔任 <span class="text-teal-300">中華科技大學</span> 資訊技術顧問。
+              近年來我深耕於 AI 資安領域——將 Gemma / Llama 等大型語言模型進行 Fine-tuning 與 RAG 架構落地部署，打造能自動識別漏洞並提出修補建議的 AI 助手。我也曾獨立完成校園系統滲透測試並通報 CVSS 9.8 等級漏洞，獲延攬擔任 <span class="text-teal-300">中華科技大學</span> 資訊技術顧問。
             </p>
           </div>
         </div>

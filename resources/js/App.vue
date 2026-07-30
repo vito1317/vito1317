@@ -5,7 +5,7 @@
       <LoadingScreen v-if="!projectsLoaded" />
     </Transition>
     
-    <ThreeDBackground />
+    <TechBackground />
 
     <TechHUD v-if="projectsLoaded" />
 
@@ -13,7 +13,7 @@
 
     <div v-if="projectsLoaded" class="relative z-10 pt-16 sm:pt-20">
       <router-view v-slot="{ Component }">
-        <Transition name="page-fade">
+        <Transition name="page-warp" mode="out-in">
           <component :is="Component" />
         </Transition>
       </router-view>
@@ -29,7 +29,7 @@ import { storeToRefs } from 'pinia';
 import { useProjectStore } from './stores/projectStore';
 import { useUiStore } from './stores/uiStore';
 
-import ThreeDBackground from './components/ThreeDBackground.vue';
+import TechBackground from './components/TechBackground.vue';
 import LoadingScreen from './components/LoadingScreen.vue';
 import Navbar from './components/Navbar.vue';
 import TechHUD from './components/TechHUD.vue';
@@ -51,13 +51,36 @@ onMounted(() => {
 </script>
 
 <style>
-.page-fade-enter-active,
-.page-fade-leave-active {
-  transition: opacity 0.3s ease;
+/* 科技感頁面切換：退場比進場快，模糊 + 縱向位移呼應 3D 背景的 warp 效果 */
+.page-warp-enter-active {
+  transition: opacity 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.32s ease-out;
 }
-.page-fade-enter-from,
-.page-fade-leave-to {
+.page-warp-leave-active {
+  transition: opacity 0.18s ease-in, transform 0.18s ease-in, filter 0.18s ease-in;
+}
+.page-warp-enter-from {
   opacity: 0;
+  transform: translateY(14px);
+  filter: blur(6px);
+}
+.page-warp-leave-to {
+  opacity: 0;
+  transform: translateY(-10px);
+  filter: blur(4px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-warp-enter-active,
+  .page-warp-leave-active {
+    transition: opacity 0.2s ease;
+  }
+  .page-warp-enter-from,
+  .page-warp-leave-to {
+    transform: none;
+    filter: none;
+  }
 }
 
 .fade-leave-active {

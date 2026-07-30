@@ -1,6 +1,8 @@
 <template>
   <div class="container mx-auto px-4 py-24 pt-20">
-    <h1 class="text-4xl md:text-5xl font-bold mb-16 text-center" data-aos="fade-down">聯繫我</h1>
+    <h1 v-decrypt class="text-4xl md:text-5xl font-bold mb-16 text-center" data-aos="fade-down">聯繫我</h1>
+
+    <ContactPortalScroll />
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
       
@@ -78,6 +80,7 @@
 <script setup>
 import { ref } from 'vue';
 import axios from 'axios';
+import ContactPortalScroll from '../components/ContactPortalScroll.vue';
 
 const form = ref({
   name: '',

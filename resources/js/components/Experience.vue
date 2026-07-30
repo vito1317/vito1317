@@ -86,7 +86,7 @@ const experiences = [
     title: '資訊技術顧問 (IT Consultant)',
     company: '中華科技大學 (CUST)',
     url: 'https://www.cust.edu.tw/',
-    description: '通報校內系統重大資安漏洞（含 CVSS 10 RCE 與 SQL Injection），獲校方延攬擔任技術顧問，協助強化校園資安防禦體系與系統修補策略。',
+    description: '通報校內系統重大資安漏洞（含 CVSS 9.8 RCE 與 SQL Injection），獲校方延攬擔任技術顧問，協助強化校園資安防禦體系與系統修補策略。',
   },
   {
     period: '2025.03 – 至今',
