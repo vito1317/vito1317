@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import HomePage from '../pages/HomePage.vue';
 import NewsPage from '../pages/NewsPage.vue';
 import ContactPage from '../pages/ContactPage.vue';
+import GithubPage from '../pages/GithubPage.vue';
 
 const routes = [
   {
@@ -15,6 +16,12 @@ const routes = [
     name: 'News',
     component: NewsPage,
     meta: { title: 'vito1317 (柯瑋宸) - 新聞報導 | 個人網站' }
+  },
+  {
+    path: '/github',
+    name: 'Github',
+    component: GithubPage,
+    meta: { title: 'vito1317 (柯瑋宸) - GitHub 專區 | 個人網站' }
   },
   {
     path: '/contact',
