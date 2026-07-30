@@ -3,6 +3,7 @@ import HomePage from '../pages/HomePage.vue';
 import NewsPage from '../pages/NewsPage.vue';
 import ContactPage from '../pages/ContactPage.vue';
 import GithubPage from '../pages/GithubPage.vue';
+import AlgorithmsPage from '../pages/AlgorithmsPage.vue';
 
 const routes = [
   {
@@ -22,6 +23,12 @@ const routes = [
     name: 'Github',
     component: GithubPage,
     meta: { title: 'vito1317 (柯瑋宸) - GitHub 專區 | 個人網站' }
+  },
+  {
+    path: '/algorithms',
+    name: 'Algorithms',
+    component: AlgorithmsPage,
+    meta: { title: 'vito1317 (柯瑋宸) - 演算法研究 | 個人網站' }
   },
   {
     path: '/contact',

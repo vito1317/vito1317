@@ -9,6 +9,7 @@
         <router-link to="/" class="nav-link">首頁</router-link>
         <router-link to="/news" class="nav-link">新聞報導</router-link>
         <router-link to="/github" class="nav-link">GitHub</router-link>
+        <router-link to="/algorithms" class="nav-link">演算法</router-link>
         <router-link to="/contact" class="nav-link">聯繫我</router-link>
       </div>
     </div>
