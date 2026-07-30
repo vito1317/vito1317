@@ -14,6 +14,14 @@ class ProjectSeeder extends Seeder
 
         $projects = [
             [
+                'title' => 'Security One SOC (WAF 資安維運中心)',
+                'description' => '企業級 Web 應用程式防火牆與資安維運中心（SOC）平台。基於反向代理架構，整合規則引擎、AI 智能分析與行為異常偵測的多層防禦，涵蓋 CC/DDoS 防護、IDS/IPS（Snort + Suricata）、CVE 漏洞追蹤、即時攻擊地圖、WAF 節點叢集管理、CDN 快取與 GeoIP 智能路由，並內建 AI 安全助手 Sentinel 與自動化合規報表。',
+                'technologies' => 'Laravel 12, PHP, Vue 3, Inertia.js, TailwindCSS, Docker, Nginx, Snort, Suricata, ClamAV, AI / LLM',
+                'github_url' => null,
+                'live_url' => 'https://cybersecureone.com',
+                'image' => '/images/security-one-soc.png',
+            ],
+            [
                 'title' => 'Aura News 全端新聞平台',
                 'description' => 'Aura News 是一個全端新聞平台專案，包含後端（Laravel, PHP）與前端（Vue 3, Vite, TailwindCSS），支援 AI 自動抓取與撰寫新聞、RESTful API、現代化前台介面與自動化部署。',
                 'technologies' => 'Laravel, PHP, MySQL, Vue 3, Vite, TailwindCSS, Node.js, Composer, Gemini AI, GitHub Actions',
