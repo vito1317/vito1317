@@ -44,8 +44,9 @@
 import { computed, onMounted, onUnmounted, ref } from 'vue';
 
 const chapters = [
-  { id: 'tact', short: 'TACT', symbol: 'γ', type: 'LLM REASONING / CONSENSUS', title: 'TACT — 信心穩健<br>加權共識', summary: '用題內信心的秩統計建立權重；當信心沒有證據可用時，以 γ = 0 精確回退至 Self-Consistency。', formula: 'wᵢ = exp(γ · φᵢ)', color: '#31e6ff' },
-  { id: 'rlev', short: 'RLEV', symbol: 'Σ', type: 'REDUNDANCY / VALUE OF INFORMATION', title: 'RLEV-VoI — 冗餘折扣<br>共識引擎', summary: '相似推理鏈不再重複計票；系統持續估計每一個新樣本的資訊價值，在答案穩定時及早停止。', formula: 'wᵢ = 1 / Σⱼ Sᵢⱼ', color: '#ff3bc8' },
+  { id: 'tact', short: 'TACT', symbol: 'γ', type: 'LLM REASONING / CONSENSUS · IEEE PAPER', title: 'TACT — 信心穩健<br>加權共識', summary: '整條方法收成一個零調校常數的式子：γ 完全由資料導出，訊號不足時恰為 0、位元等同 Self-Consistency——信心通道第一次在真實資料上被證實（z = +2.54）。', formula: 'γ = z·√(2 + z²),  z = Φ⁻¹(AUC)', color: '#31e6ff' },
+  { id: 'window', short: 'WINDOW', symbol: '%', type: 'STRUCTURAL BOUNDARY / 5 SUBSTRATES', title: '薄窗 — 聚合的<br>結構性邊界', summary: '跨兩個領域、五個基質的直接量測：無標籤聚合能作用的分層只佔題目 2–7.5%，且難度上升不會讓它變寬——一條邊界解釋了六個死亡設計的死因。', formula: '窗口 = oracle − 基線 = 2–7.5%', color: '#5effa7' },
+  { id: 'rlev', short: 'RLEV', symbol: 'Σ', type: 'REDUNDANCY / VALUE OF INFORMATION', title: 'RLEV-VoI — 冗餘折扣<br>共識引擎', summary: '相似推理鏈不再重複計票；系統持續估計每一個新樣本的資訊價值，在答案穩定時及早停止。誠實發表的負面結果，屍檢催生了整個後續研究計畫。', formula: 'wᵢ = 1 / Σⱼ Sᵢⱼ', color: '#ff3bc8' },
   { id: 'ml', short: 'ML', symbol: 'Δ', type: 'SECURITY / ANOMALY DETECTION', title: '自適應 ML<br>行為異常偵測', summary: '從請求的 16 維特徵建立每個站點的行為基線，並隨標記資料演進到 Logistic 與 MLP 模型。', formula: 'score = Σ wₖ · |zₖ|', color: '#a98cff' },
 ];
 
