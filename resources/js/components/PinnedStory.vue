@@ -13,35 +13,7 @@
         <div class="scan-sweep"></div>
       </div>
 
-      <svg
-        class="rings-svg absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
-        viewBox="0 0 400 400"
-        preserveAspectRatio="xMidYMid meet"
-      >
-        <defs>
-          <linearGradient id="ringGradA" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" :stop-color="currentAccent" stop-opacity="0.9" />
-            <stop offset="100%" :stop-color="currentAccent" stop-opacity="0" />
-          </linearGradient>
-        </defs>
-        <g :style="{ transformOrigin: '200px 200px', transform: `rotate(${rotA}deg)` }">
-          <circle cx="200" cy="200" r="170" fill="none" :stroke="currentAccent" stroke-width="0.8" stroke-opacity="0.25" stroke-dasharray="4 8" />
-          <circle cx="200" cy="200" r="170" fill="none" stroke="url(#ringGradA)" stroke-width="2" />
-          <circle cx="370" cy="200" r="4" :fill="currentAccent" />
-        </g>
-        <g :style="{ transformOrigin: '200px 200px', transform: `rotate(${-rotA * 0.6}deg)` }">
-          <circle cx="200" cy="200" r="140" fill="none" :stroke="currentAccent" stroke-width="0.6" stroke-opacity="0.4" stroke-dasharray="2 12" />
-        </g>
-        <g :style="{ transformOrigin: '200px 200px', transform: `rotate(${rotA * 1.4}deg)` }">
-          <circle cx="200" cy="200" r="110" fill="none" :stroke="currentAccent" stroke-width="0.5" stroke-opacity="0.3" />
-          <circle cx="310" cy="200" r="2.5" :fill="currentAccent" />
-          <circle cx="90" cy="200" r="2.5" :fill="currentAccent" />
-        </g>
-        <g :style="{ transformOrigin: '200px 200px', transform: `rotate(${-rotA * 0.3}deg)` }">
-          <path d="M200 80 L205 72 L215 72 M200 320 L195 328 L185 328 M80 200 L72 205 L72 215 M320 200 L328 195 L328 185"
-            fill="none" :stroke="currentAccent" stroke-width="1.2" />
-        </g>
-      </svg>
+      <ScrollScene3D :progress="progress" :act="activeIndex" :active="sectionVisible" />
 
       <div class="relative container mx-auto px-4 sm:px-6 z-10 max-w-full">
         <div class="flex flex-wrap items-center gap-x-3 gap-y-1 mb-3 sm:mb-4" data-aos="fade-right">
@@ -142,6 +114,7 @@
 
 <script setup>
 import { ref, computed, onMounted, onUnmounted, watch, reactive } from 'vue';
+import ScrollScene3D from './ScrollScene3D.vue';
 
 const acts = [
   {
@@ -197,7 +170,7 @@ const sectionRef = ref(null);
 const rainCanvas = ref(null);
 const progress = ref(0);
 const activeIndex = ref(0);
-const rotA = ref(0);
+const sectionVisible = ref(false);
 
 const typed = reactive(acts.map(() => ''));
 const animateStats = reactive(acts[0].stats.map(() => 0));
@@ -220,6 +193,7 @@ let typingTimer = null;
 let statTimer = null;
 let matrixRaf = null;
 let matrixState = null;
+let sectionIo = null;
 
 const startTypewriter = (index) => {
   clearInterval(typingTimer);
@@ -294,47 +268,70 @@ const initMatrix = () => {
 
   matrixState = { canvas, ctx, resize, chars, fontSize, cols, drops };
 
-  const draw = () => {
-    const { ctx, canvas, chars, fontSize, drops } = matrixState;
-    ctx.fillStyle = 'rgba(5, 6, 15, 0.18)';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-    ctx.font = `${fontSize}px ui-monospace, monospace`;
-    for (let i = 0; i < drops.length; i++) {
-      const text = chars[Math.floor(Math.random() * chars.length)];
-      const x = i * fontSize;
-      const y = drops[i] * fontSize;
-      ctx.fillStyle = currentAccent.value;
-      ctx.fillText(text, x, y);
-      if (y > canvas.height && Math.random() > 0.975) drops[i] = 0;
-      drops[i] += 0.7;
-    }
-    matrixRaf = requestAnimationFrame(draw);
-  };
-  draw();
-
   window.addEventListener('resize', resize);
 };
 
-const animateRings = () => {
-  rotA.value = (rotA.value + 0.25) % 360;
-  requestAnimationFrame(animateRings);
+// Matrix rain：24fps 已足夠呈現效果，成本約為 60fps 的 40%
+let lastRainTs = 0;
+const drawRain = (ts) => {
+  matrixRaf = requestAnimationFrame(drawRain);
+  if (ts - lastRainTs < 41) return;
+  lastRainTs = ts;
+  const { ctx, canvas, chars, fontSize, drops } = matrixState;
+  ctx.fillStyle = 'rgba(5, 6, 15, 0.18)';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.font = `${fontSize}px ui-monospace, monospace`;
+  for (let i = 0; i < drops.length; i++) {
+    const text = chars[Math.floor(Math.random() * chars.length)];
+    const x = i * fontSize;
+    const y = drops[i] * fontSize;
+    ctx.fillStyle = currentAccent.value;
+    ctx.fillText(text, x, y);
+    if (y > canvas.height && Math.random() > 0.975) drops[i] = 0;
+    drops[i] += 1.75; // 補償低幀率，維持原本視覺下落速度
+  }
+};
+
+// 只在區塊可見且分頁前景時跑動畫迴圈（3D 場景由 sectionVisible prop 自行閘控）
+const startLoops = () => {
+  if (!sectionVisible.value || document.hidden) return;
+  if (!matrixRaf && matrixState) {
+    lastRainTs = 0;
+    matrixRaf = requestAnimationFrame(drawRain);
+  }
+};
+
+const stopLoops = () => {
+  if (matrixRaf) { cancelAnimationFrame(matrixRaf); matrixRaf = null; }
+};
+
+const onVisibilityChange = () => {
+  document.hidden ? stopLoops() : startLoops();
 };
 
 onMounted(() => {
   window.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('resize', onScroll);
+  document.addEventListener('visibilitychange', onVisibilityChange);
   updateProgress();
   startTypewriter(0);
   startStatsCount(0);
   initMatrix();
-  animateRings();
+
+  sectionIo = new IntersectionObserver(([entry]) => {
+    sectionVisible.value = entry.isIntersecting;
+    entry.isIntersecting ? startLoops() : stopLoops();
+  }, { rootMargin: '10% 0px' });
+  sectionIo.observe(sectionRef.value);
 });
 
 onUnmounted(() => {
   window.removeEventListener('scroll', onScroll);
   window.removeEventListener('resize', onScroll);
+  document.removeEventListener('visibilitychange', onVisibilityChange);
   if (rafId) cancelAnimationFrame(rafId);
-  if (matrixRaf) cancelAnimationFrame(matrixRaf);
+  stopLoops();
+  sectionIo?.disconnect();
   clearInterval(typingTimer);
   clearInterval(statTimer);
   if (matrixState) window.removeEventListener('resize', matrixState.resize);
@@ -345,17 +342,6 @@ onUnmounted(() => {
 :deep(.accent-text) {
   color: var(--accent, #22e0ff);
   text-shadow: 0 0 18px var(--accent, #22e0ff), 0 0 2px #fff;
-}
-
-.rings-svg {
-  width: min(100vmin, 720px);
-  height: min(100vmin, 720px);
-}
-@media (max-width: 768px) {
-  .rings-svg { width: min(110vmin, 520px); height: min(110vmin, 520px); opacity: 0.55; }
-}
-@media (max-width: 480px) {
-  .rings-svg { opacity: 0.4; }
 }
 
 .grid-bg {
