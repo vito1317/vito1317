@@ -79,6 +79,8 @@ const spawnStreak = () => {
 
 const draw = (now) => {
   rafId = requestAnimationFrame(draw);
+  // 手機以 ~30fps 渲染即可，成本減半；桌面維持 60fps
+  if (width < 768 && now - lastTime < 30) return;
   const delta = Math.min((now - lastTime) / 1000, 0.05);
   lastTime = now;
 
@@ -106,12 +108,9 @@ const draw = (now) => {
     const alpha = p.baseAlpha * (0.7 + Math.sin(p.twinkle) * 0.3);
 
     if (warpEnergy > 0.05) {
-      // 曲速：粒子拉成垂直光痕
+      // 曲速：粒子拉成垂直光痕（單色實線，避免每粒子每幀建立漸層物件）
       const trail = 6 + warpEnergy * 90 * p.depth;
-      const grad = ctx.createLinearGradient(px, wrappedY - trail, px, wrappedY);
-      grad.addColorStop(0, `rgba(${p.color}, 0)`);
-      grad.addColorStop(1, `rgba(${p.color}, ${alpha})`);
-      ctx.strokeStyle = grad;
+      ctx.strokeStyle = `rgba(${p.color}, ${alpha * 0.85})`;
       ctx.lineWidth = p.size;
       ctx.beginPath();
       ctx.moveTo(px, wrappedY - trail);
@@ -197,7 +196,10 @@ onMounted(() => {
   resize();
   window.addEventListener('resize', resize);
   window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('mousemove', onMouseMove, { passive: true });
+  // 觸控裝置沒有滑鼠視差，省掉 mousemove 監聽
+  if (window.matchMedia('(hover: hover)').matches) {
+    window.addEventListener('mousemove', onMouseMove, { passive: true });
+  }
   document.addEventListener('visibilitychange', onVisibility);
   start();
 });
@@ -231,28 +233,27 @@ onUnmounted(() => {
   -webkit-mask-image: radial-gradient(ellipse at center, transparent 25%, black 80%);
 }
 
-/* 環境光暈：緩慢漂移 */
+/* 環境光暈：柔邊直接由漸層 falloff 產生，省去 blur(90px) 的每幀濾鏡成本 */
 .tech-bg__glow {
   position: absolute;
-  width: 55vw;
-  height: 55vw;
-  max-width: 820px;
-  max-height: 820px;
+  width: 60vw;
+  height: 60vw;
+  max-width: 900px;
+  max-height: 900px;
   border-radius: 9999px;
-  filter: blur(90px);
-  opacity: 0.16;
+  opacity: 0.2;
   will-change: transform;
 }
 .tech-bg__glow--cyan {
   top: -18%;
   left: -12%;
-  background: radial-gradient(circle, #22e0ff 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(34, 224, 255, 0.75) 0%, rgba(34, 224, 255, 0.28) 30%, transparent 62%);
   animation: glow-drift-a 26s ease-in-out infinite alternate;
 }
 .tech-bg__glow--violet {
   bottom: -22%;
   right: -14%;
-  background: radial-gradient(circle, #7b5bff 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(123, 91, 255, 0.75) 0%, rgba(123, 91, 255, 0.28) 30%, transparent 62%);
   animation: glow-drift-b 32s ease-in-out infinite alternate;
 }
 @keyframes glow-drift-a {

@@ -71,6 +71,14 @@ onMounted(() => {
   filter: blur(4px);
 }
 
+/* 手機省去全頁 blur 濾鏡（GPU 成本高），只保留透明度 + 位移 */
+@media (max-width: 767px) {
+  .page-warp-enter-from,
+  .page-warp-leave-to {
+    filter: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .page-warp-enter-active,
   .page-warp-leave-active {

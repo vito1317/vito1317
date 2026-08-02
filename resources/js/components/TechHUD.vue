@@ -65,11 +65,17 @@ onUnmounted(() => {
 <style scoped>
 .tech-hud {
   font-family: 'Fira Code', ui-monospace, SFMono-Regular, Menlo, monospace;
+  overflow: hidden;
 }
 
+/* 掃描線用 transform 位移（合成器處理），
+   而非 background-position（每幀重繪整個視口） */
 .scanlines {
   position: absolute;
-  inset: 0;
+  left: 0;
+  right: 0;
+  top: -60px;
+  height: calc(100% + 60px);
   background: repeating-linear-gradient(
     to bottom,
     rgba(34, 224, 255, 0.03) 0px,
@@ -80,11 +86,12 @@ onUnmounted(() => {
   mix-blend-mode: screen;
   opacity: 0.55;
   animation: scanlineShift 8s linear infinite;
+  will-change: transform;
 }
 
 @keyframes scanlineShift {
-  0% { background-position-y: 0; }
-  100% { background-position-y: 60px; }
+  0% { transform: translateY(0); }
+  100% { transform: translateY(60px); }
 }
 
 .vignette {
