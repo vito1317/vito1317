@@ -61,8 +61,16 @@
             <label for="message" class="block text-sm font-medium text-gray-400 mb-1">訊息內容</label>
             <textarea v-model="form.message" id="message" rows="4" class="form-input" required></textarea>
           </div>
-          
-          <div v-if="formStatus.message" :class="formStatus.type === 'success' ? 'text-green-400' : 'text-red-400'" class="text-sm">
+
+          <!-- Security One BotFight 人機驗證 -->
+          <div>
+            <div ref="botfightEl" class="sec1-botfight" data-theme="dark"></div>
+            <p v-if="botfightFailed" class="text-xs text-amber-400 mt-2">
+              人機驗證元件載入失敗，請重新整理頁面或稍後再試。
+            </p>
+          </div>
+
+          <div v-if="formStatus.message" :class="formStatus.type === 'success' ? 'text-green-400' : 'text-red-400'" class="text-sm" role="alert">
             {{ formStatus.message }}
           </div>
           
@@ -78,9 +86,11 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 import axios from 'axios';
 import ContactPortalScroll from '../components/ContactPortalScroll.vue';
+
+const BOTFIGHT_SRC = 'https://waf.cybersecureone.com/bf/v1.js?k=1xk4fqmrmoupxrylkgboyndn7xv3tgra';
 
 const form = ref({
   name: '',
@@ -90,27 +100,92 @@ const form = ref({
 
 const isLoading = ref(false);
 const formStatus = ref({ type: '', message: '' });
+const botfightEl = ref(null);
+const botfightFailed = ref(false);
+let botfightWidgetId = null;
+
+// SPA 環境下手動載入 + render：腳本只插入一次，
+// 每次進入本頁時對容器重新 render widget
+const loadBotfightScript = () =>
+  new Promise((resolve, reject) => {
+    if (window.SecurityOneBotFight) return resolve();
+    let script = document.querySelector('script[data-sec1-botfight]');
+    if (!script) {
+      script = document.createElement('script');
+      script.src = BOTFIGHT_SRC;
+      script.async = true;
+      script.dataset.sec1Botfight = '1';
+      document.head.appendChild(script);
+    }
+    script.addEventListener('load', resolve, { once: true });
+    script.addEventListener('error', () => reject(new Error('script load failed')), { once: true });
+  });
+
+const initBotfight = async () => {
+  try {
+    await loadBotfightScript();
+    window.SecurityOneBotFight.ready(() => {
+      if (!botfightEl.value) return;
+      // 若腳本載入時已自動渲染過該容器就不重複 render
+      if (!botfightEl.value.hasChildNodes()) {
+        botfightWidgetId = window.SecurityOneBotFight.render(botfightEl.value, { theme: 'dark' });
+      }
+    });
+  } catch (err) {
+    console.error('[ContactPage] BotFight 載入失敗', err);
+    botfightFailed.value = true;
+  }
+};
+
+const getBotfightToken = () => {
+  try {
+    const viaApi = window.SecurityOneBotFight?.getResponse?.(botfightWidgetId ?? undefined);
+    if (viaApi) return viaApi;
+  } catch { /* fall through */ }
+  return botfightEl.value?.querySelector('[name="sec1-botfight-response"]')?.value || '';
+};
+
+const resetBotfight = () => {
+  try {
+    window.SecurityOneBotFight?.reset?.(botfightWidgetId ?? undefined);
+  } catch { /* widget 未載入時忽略 */ }
+};
 
 const handleSubmit = async () => {
-  isLoading.value = true;
   formStatus.value = { type: '', message: '' };
 
+  const token = getBotfightToken();
+  if (!token) {
+    formStatus.value = { type: 'error', message: '請先完成人機驗證再送出。' };
+    return;
+  }
+
+  isLoading.value = true;
   try {
-    const response = await axios.post('/api/contact', form.value);
+    const response = await axios.post('/api/contact', {
+      ...form.value,
+      botfight_token: token,
+    });
     formStatus.value = { type: 'success', message: response.data.message };
     form.value.name = '';
     form.value.email = '';
     form.value.message = '';
   } catch (error) {
     if (error.response && error.response.status === 422) {
-      formStatus.value = { type: 'error', message: '請檢查所有欄位是否已正確填寫。' };
+      const errors = error.response.data.errors ?? {};
+      const first = Object.values(errors).flat()[0];
+      formStatus.value = { type: 'error', message: first || '請檢查所有欄位是否已正確填寫。' };
     } else {
       formStatus.value = { type: 'error', message: '訊息傳送失敗，請稍後再試。' };
     }
   } finally {
     isLoading.value = false;
+    // token 為單次有效：無論成功或失敗都重置 widget
+    resetBotfight();
   }
 };
+
+onMounted(initBotfight);
 </script>
 
 <style scoped>

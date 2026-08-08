@@ -40,4 +40,9 @@ return [
         'username' => env('GITHUB_USERNAME', 'vito1317'),
     ],
 
+    'botfight' => [
+        'secret' => env('SEC1_BOTFIGHT_SECRET'),
+        'verify_url' => env('SEC1_BOTFIGHT_VERIFY_URL', 'https://waf.cybersecureone.com/bf/v1/siteverify'),
+    ],
+
 ];
