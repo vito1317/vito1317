@@ -11,6 +11,7 @@ Route::get('/projects', function () {
 });
 
 Route::get('/github/repos', [GithubController::class, 'repos']);
+Route::get('/github/contributions', [GithubController::class, 'contributions']);
 
 Route::get('/algorithms', function () {
     return Algorithm::orderBy('display_order', 'asc')->get();

@@ -15,6 +15,10 @@ class GithubController extends Controller
     private const RECENT_DAYS = 30;
     private const MAX_COMMIT_LOOKUPS = 20;
 
+    private const CONTRIB_CACHE_KEY = 'github.contributions';
+    private const CONTRIB_BACKUP_KEY = 'github.contributions.backup';
+    private const CONTRIB_TTL = 21600; // 6 hours
+
     public function repos()
     {
         $data = Cache::remember(self::CACHE_KEY, self::CACHE_TTL, function () {
@@ -34,6 +38,82 @@ class GithubController extends Controller
         });
 
         return response()->json($data);
+    }
+
+    public function contributions()
+    {
+        $data = Cache::remember(self::CONTRIB_CACHE_KEY, self::CONTRIB_TTL, function () {
+            $fresh = $this->fetchContributions();
+
+            if ($fresh !== null) {
+                Cache::forever(self::CONTRIB_BACKUP_KEY, $fresh);
+
+                return $fresh;
+            }
+
+            return Cache::get(self::CONTRIB_BACKUP_KEY, [
+                'total' => 0,
+                'days' => [],
+                'generated_at' => null,
+            ]);
+        });
+
+        return response()->json($data);
+    }
+
+    private function fetchContributions(): ?array
+    {
+        $username = config('services.github.username');
+
+        try {
+            $response = $this->client()->post('https://api.github.com/graphql', [
+                'query' => 'query($login: String!) { user(login: $login) { contributionsCollection { contributionCalendar { totalContributions weeks { contributionDays { contributionCount date } } } } } }',
+                'variables' => ['login' => $username],
+            ]);
+
+            $calendar = $response->json('data.user.contributionsCollection.contributionCalendar');
+
+            if ($response->failed() || !$calendar) {
+                Log::warning('GitHub contributions GraphQL failed', ['status' => $response->status()]);
+
+                return null;
+            }
+
+            $days = [];
+            foreach ($calendar['weeks'] as $week) {
+                foreach ($week['contributionDays'] as $day) {
+                    $days[] = ['d' => $day['date'], 'c' => $day['contributionCount']];
+                }
+            }
+
+            $busiest = ['d' => null, 'c' => 0];
+            $activeDays = 0;
+            $longestStreak = 0;
+            $streak = 0;
+            foreach ($days as $day) {
+                if ($day['c'] > $busiest['c']) $busiest = $day;
+                if ($day['c'] > 0) {
+                    $activeDays++;
+                    $streak++;
+                    $longestStreak = max($longestStreak, $streak);
+                } else {
+                    $streak = 0;
+                }
+            }
+
+            return [
+                'total' => $calendar['totalContributions'],
+                'days' => $days,
+                'busiest' => $busiest,
+                'active_days' => $activeDays,
+                'longest_streak' => $longestStreak,
+                'generated_at' => now()->toIso8601String(),
+            ];
+        } catch (\Throwable $e) {
+            Log::warning('GitHub contributions fetch failed', ['error' => $e->getMessage()]);
+
+            return null;
+        }
     }
 
     private function fetchFromGithub(): ?array
