@@ -160,11 +160,11 @@ onUnmounted(() => {
 .hud-magenta { color: #ff2bd6; text-shadow: 0 0 6px rgba(255, 43, 214, 0.4); }
 
 @media (max-width: 768px) {
-  .hud-status { font-size: 9px; padding: 4px 10px; gap: 6px; }
   .hud-bracket { width: 36px; height: 36px; }
-  /* Avoid overlapping the mobile navbar (h-16 = 64px) and browser UI */
+  /* 手機版空間有限：狀態列與時鐘膠囊都會蓋到內容（如 CodeField 的
+     計數器列），整組隱藏 */
   .hud-top { display: none; }
-  .hud-bottom { bottom: 10px; }
+  .hud-bottom { display: none; }
 }
 @media (max-width: 480px) {
   .hud-bracket.top-left, .hud-bracket.top-right { display: none; }

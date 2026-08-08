@@ -7,7 +7,7 @@
       以及在生產環境持續運作的機器學習引擎
     </p>
 
-    <AlgorithmCoreScroll />
+    <AlgorithmFieldScroll />
 
     <!-- 載入中骨架 -->
     <div v-if="loading" class="max-w-5xl mx-auto space-y-8">
@@ -140,7 +140,7 @@ defineOptions({
 });
 import { ref, onMounted } from 'vue';
 import axios from 'axios';
-import AlgorithmCoreScroll from '../components/AlgorithmCoreScroll.vue';
+import AlgorithmFieldScroll from '../components/AlgorithmFieldScroll.vue';
 
 const algorithms = ref([]);
 const loading = ref(true);

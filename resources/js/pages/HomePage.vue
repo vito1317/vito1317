@@ -15,6 +15,10 @@
 
     <Experience />
 
+    <CodeFieldScroll />
+
+    <PortfolioFieldScroll />
+
     <main class="container mx-auto px-4 pb-16 sm:pb-24">
       <h2 class="text-3xl sm:text-4xl font-bold mb-8 sm:mb-12 text-center">作品集</h2>
 
@@ -59,6 +63,8 @@ import { useProjectStore } from '../stores/projectStore';
 import ProjectCard from '../components/ProjectCard.vue';
 import AboutMe from '../components/AboutMe.vue';
 import Experience from '../components/Experience.vue';
+import CodeFieldScroll from '../components/CodeFieldScroll.vue';
+import PortfolioFieldScroll from '../components/PortfolioFieldScroll.vue';
 import PinnedStory from '../components/PinnedStory.vue';
 import Fixed3DScroll from '../components/Fixed3DScroll.vue';
 
