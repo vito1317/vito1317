@@ -19,7 +19,7 @@ class ProjectSeeder extends Seeder
                 'technologies' => 'Laravel 12, PHP, Vue 3, Inertia.js, TailwindCSS, Docker, Nginx, Snort, Suricata, ClamAV, AI / LLM',
                 'github_url' => null,
                 'live_url' => 'https://cybersecureone.com',
-                'image' => '/images/security-one-soc.png',
+                'image' => '/images/security-one-soc.png?v=2',
             ],
             [
                 'title' => 'Aura News 全端新聞平台',
