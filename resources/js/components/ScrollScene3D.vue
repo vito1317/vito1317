@@ -15,6 +15,7 @@
  * 手機減粒子、reduced-motion 只渲染靜態單幀。
  */
 import { ref, watch, onMounted, onUnmounted } from 'vue';
+import { cappedPixelRatio } from '../utils/renderScale';
 
 const props = defineProps({
   progress: { type: Number, default: 0 },
@@ -142,8 +143,7 @@ const resize = () => {
   if (!renderer) return;
   const el = canvasRef.value;
   const size = el.clientWidth || 1;
-  const mobile = window.innerWidth < 768;
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, mobile ? 1.25 : 1.5));
+  renderer.setPixelRatio(cappedPixelRatio(size, size));
   renderer.setSize(size, size, false);
   camera.aspect = 1;
   camera.updateProjectionMatrix();

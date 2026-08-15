@@ -91,6 +91,7 @@
  */
 import { ref, computed, onMounted, onUnmounted } from 'vue';
 import axios from 'axios';
+import { cappedPixelRatio } from '../utils/renderScale';
 
 const ACTS = [
   { label: '進場', at: 0.02 },
@@ -315,7 +316,6 @@ const init = async () => {
 
     const mobile = window.innerWidth < 768;
     renderer = new THREE.WebGLRenderer({ canvas: canvasRef.value, antialias: !mobile, alpha: true });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, mobile ? 1.25 : 1.75));
 
     scene = new THREE.Scene();
     scene.fog = new THREE.Fog(0x050c17, 30, 150);
@@ -337,6 +337,7 @@ const init = async () => {
     const rect = canvasRef.value.getBoundingClientRect();
     const width = Math.max(1, rect.width);
     const height = Math.max(1, rect.height);
+    renderer.setPixelRatio(cappedPixelRatio(width, height));
     renderer.setSize(width, height, false);
     camera.aspect = width / height;
     camera.updateProjectionMatrix();
@@ -362,6 +363,7 @@ const resize = () => {
   const rect = canvasRef.value.getBoundingClientRect();
   const width = Math.max(1, rect.width);
   const height = Math.max(1, rect.height);
+  renderer.setPixelRatio(cappedPixelRatio(width, height));
   renderer.setSize(width, height, false);
   camera.aspect = width / height;
   camera.updateProjectionMatrix();
