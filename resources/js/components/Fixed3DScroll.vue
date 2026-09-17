@@ -1,5 +1,5 @@
 <template>
-  <section ref="sectionRef" class="fixed-3d-scroll" :style="{ height: `${slides.length * 115}vh` }">
+  <section ref="sectionRef" class="fixed-3d-scroll" :class="{ 'is-onscreen': onScreen }" :style="{ height: `${slides.length * 115}vh` }">
     <div class="fixed-3d-scroll__sticky">
       <div class="fixed-3d-scroll__stars"></div>
       <div class="fixed-3d-scroll__horizon"></div>
@@ -70,7 +70,9 @@ const slides = [
 const sectionRef = ref(null);
 const progress = ref(0);
 const activeIndex = ref(0);
+const onScreen = ref(false);
 let rafId = null;
+let io = null;
 
 const activeSlide = computed(() => slides[activeIndex.value]);
 const sceneStyle = computed(() => ({
@@ -82,11 +84,14 @@ const sceneStyle = computed(() => ({
 const panelStyle = (index) => {
   const depth = index - progress.value * (slides.length - 1);
   const distance = Math.abs(depth);
+  // 景深模糊每次改變都要重新光柵化整片面板 —— 在 2K/4K 這是本區塊捲動卡頓的主因。
+  // 量化成整數 px 並設上限，讓數值整段捲動只變動幾次；最前面那片直接不套 filter。
+  const blurPx = Math.min(4, Math.round(Math.max(0, distance - 0.2) * 2.2));
   return {
     '--panel-color': slides[index].color,
     opacity: Math.max(0.18, 1 - distance * 0.38),
     transform: `translate3d(${depth * 14}vw, ${depth * -5}vh, ${-distance * 520}px) rotateY(${depth * -27}deg) rotateX(${depth * 8}deg) scale(${1 - Math.min(distance, 1.5) * 0.16})`,
-    filter: `blur(${Math.max(0, distance - 0.2) * 2.2}px)`,
+    filter: blurPx ? `blur(${blurPx}px)` : 'none',
   };
 };
 
@@ -109,11 +114,14 @@ onMounted(() => {
   updateProgress();
   window.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('resize', onScroll);
+  io = new IntersectionObserver(([entry]) => { onScreen.value = entry.isIntersecting; }, { rootMargin: '10% 0px' });
+  io.observe(sectionRef.value);
 });
 
 onUnmounted(() => {
   window.removeEventListener('scroll', onScroll);
   window.removeEventListener('resize', onScroll);
+  io?.disconnect();
   if (rafId) cancelAnimationFrame(rafId);
 });
 </script>
@@ -127,7 +135,7 @@ onUnmounted(() => {
 .fixed-3d-scroll__scene { position: absolute; width: min(78vw, 980px); height: min(78vw, 760px); right: -3vw; top: 50%; transform: translateY(-50%) scale(var(--zoom)); perspective: 1200px; transform-style: preserve-3d; transition: --accent .4s ease; }
 .fixed-3d-scroll__floor { position: absolute; width: 150%; height: 95%; left: -25%; top: 53%; transform: rotateX(68deg) rotateZ(var(--turn)); transform-origin: center top; background-image: linear-gradient(color-mix(in srgb, var(--accent, #22e0ff) 26%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in srgb, var(--accent, #22e0ff) 26%, transparent) 1px, transparent 1px); background-size: 52px 52px; mask-image: linear-gradient(to bottom, black, transparent 82%); }
 .fixed-3d-scroll__beam { position: absolute; width: 1px; height: 140%; top: -20%; background: linear-gradient(transparent, var(--accent), transparent); box-shadow: 0 0 18px var(--accent); opacity: .5; transform: rotate(27deg); }.fixed-3d-scroll__beam--left { left: 25%; }.fixed-3d-scroll__beam--right { right: 14%; transform: rotate(-27deg); }
-.fixed-3d-scroll__panel { position: absolute; width: min(44vw, 420px); aspect-ratio: .74; left: 25%; top: 14%; transform-style: preserve-3d; border: 1px solid color-mix(in srgb, var(--panel-color) 68%, transparent); background: linear-gradient(135deg, color-mix(in srgb, var(--panel-color) 14%, rgba(9,11,25,.72)), rgba(4,5,15,.56)); box-shadow: inset 0 0 50px color-mix(in srgb, var(--panel-color) 18%, transparent), 0 0 55px color-mix(in srgb, var(--panel-color) 28%, transparent); transition: opacity .18s linear, filter .18s linear; overflow: hidden; }
+.fixed-3d-scroll__panel { position: absolute; width: min(44vw, 420px); aspect-ratio: .74; left: 25%; top: 14%; transform-style: preserve-3d; border: 1px solid color-mix(in srgb, var(--panel-color) 68%, transparent); background: linear-gradient(135deg, color-mix(in srgb, var(--panel-color) 14%, rgba(9,11,25,.72)), rgba(4,5,15,.56)); box-shadow: inset 0 0 50px color-mix(in srgb, var(--panel-color) 18%, transparent), 0 0 55px color-mix(in srgb, var(--panel-color) 28%, transparent); transition: opacity .18s linear; overflow: hidden; }
 .fixed-3d-scroll__panel::before, .fixed-3d-scroll__panel::after { content: ''; position: absolute; inset: 12px; border: 1px solid color-mix(in srgb, var(--panel-color) 32%, transparent); }.fixed-3d-scroll__panel::after { inset: auto 12px 18%; height: 1px; background: var(--panel-color); border: 0; box-shadow: 0 0 14px var(--panel-color); }
 .fixed-3d-scroll__panel-glow { position: absolute; width: 65%; aspect-ratio: 1; top: 22%; left: 18%; border-radius: 50%; background: radial-gradient(circle, color-mix(in srgb, var(--panel-color) 72%, white), transparent 66%); filter: blur(13px); opacity: .45; animation: pulse-orb 3s ease-in-out infinite; }
 .algorithm-visual { position: absolute; z-index: 1; inset: 20% 13% 21%; transform: translateZ(48px); color: var(--panel-color); font-family: ui-monospace, monospace; }.algorithm-visual::before { content: ''; position: absolute; inset: 0; border: 1px solid color-mix(in srgb, var(--panel-color) 24%, transparent); background-image: linear-gradient(90deg, color-mix(in srgb, var(--panel-color) 12%, transparent) 1px, transparent 1px), linear-gradient(color-mix(in srgb, var(--panel-color) 12%, transparent) 1px, transparent 1px); background-size: 16px 16px; }
@@ -137,7 +145,12 @@ onUnmounted(() => {
 .fixed-3d-scroll__panel-number, .fixed-3d-scroll__panel-code { position: absolute; z-index: 2; font: 700 11px/1 ui-monospace, monospace; letter-spacing: .18em; color: var(--panel-color); }.fixed-3d-scroll__panel-number { top: 27px; left: 28px; font-size: 26px; }.fixed-3d-scroll__panel-code { right: 25px; bottom: 25px; writing-mode: vertical-rl; }
 .fixed-3d-scroll__copy { position: relative; z-index: 2; pointer-events: none; }.fixed-3d-scroll__eyebrow, .fixed-3d-scroll__chapter { font: 700 11px/1.5 ui-monospace, monospace; letter-spacing: .24em; color: var(--accent); }.fixed-3d-scroll__chapter { margin: 22px 0 12px; opacity: .9; }.fixed-3d-scroll__copy h2 { font-size: clamp(2.7rem, 6vw, 6.7rem); font-weight: 900; line-height: .98; letter-spacing: -.06em; }.fixed-3d-scroll__copy h2 :deep(em) { color: var(--accent); font-style: normal; text-shadow: 0 0 32px color-mix(in srgb, var(--accent) 58%, transparent); }.fixed-3d-scroll__description { margin-top: 20px; max-width: 29rem; font-size: clamp(.95rem, 1.6vw, 1.15rem); line-height: 1.8; color: #b6bfd2; }.fixed-3d-scroll__progress { position: absolute; z-index: 4; right: 28px; top: 50%; display: grid; gap: 10px; transform: translateY(-50%); }.fixed-3d-scroll__progress span { width: 3px; height: 34px; background: rgba(255,255,255,.2); transition: .3s ease; }.fixed-3d-scroll__progress .active { background: var(--accent); box-shadow: 0 0 14px var(--accent); height: 55px; }.fixed-3d-scroll__hint { position: absolute; z-index: 3; left: 50%; bottom: 30px; transform: translateX(-50%); font: 10px/1 ui-monospace, monospace; letter-spacing: .22em; color: #b8c1d8; white-space: nowrap; }.fixed-3d-scroll__hint i { display: inline-block; width: 34px; height: 1px; margin-left: 8px; vertical-align: middle; background: var(--accent); box-shadow: 0 0 8px var(--accent); }
 .fixed-3d-scroll__text-enter-active, .fixed-3d-scroll__text-leave-active { transition: opacity .28s ease, transform .35s cubic-bezier(.16,1,.3,1); }.fixed-3d-scroll__text-enter-from { opacity: 0; transform: translateY(18px); }.fixed-3d-scroll__text-leave-to { opacity: 0; transform: translateY(-12px); }
-@keyframes pulse-orb { 50% { transform: scale(1.18); opacity: .8; } } @keyframes tact-vote { to { transform: scale(1.7); box-shadow: 0 0 18px var(--panel-color); } } @keyframes anomaly-scan { to { transform: translateY(240px); } } @keyframes anomaly-alert { 50% { opacity: .2; } }
+@keyframes pulse-orb { 50% { opacity: .8; } } @keyframes tact-vote { to { transform: scale(1.7); box-shadow: 0 0 18px var(--panel-color); } } @keyframes anomaly-scan { to { transform: translateY(240px); } } @keyframes anomaly-alert { 50% { opacity: .2; } }
 @media (max-width: 700px) { .fixed-3d-scroll__scene { width: 76vw; height: 76vw; right: -15vw; top: 64%; opacity: .58; }.fixed-3d-scroll__panel { width: 55vw; left: 12%; top: 8%; }.fixed-3d-scroll__panel:not(.is-active) { display: none; }.fixed-3d-scroll__panel-number { top: 15px; left: 16px; font-size: 18px; }.fixed-3d-scroll__panel-code { right: 13px; bottom: 13px; font-size: 8px; }.fixed-3d-scroll__copy { align-self: flex-start; padding-top: 18vh; }.fixed-3d-scroll__copy h2 { font-size: clamp(2.8rem, 14vw, 4.7rem); }.fixed-3d-scroll__description { max-width: 20rem; }.fixed-3d-scroll__progress { right: 12px; }.fixed-3d-scroll__hint { bottom: 18px; font-size: 8px; } }
+/* 區塊不在畫面上時暫停所有無限動畫（pulse-orb / 掃描 / 投票 / 警示），
+   避免捲到其他區塊時這些模糊光暈還在背景持續合成、吃 CPU/GPU。 */
+.fixed-3d-scroll:not(.is-onscreen) *,
+.fixed-3d-scroll:not(.is-onscreen) *::before,
+.fixed-3d-scroll:not(.is-onscreen) *::after { animation-play-state: paused !important; }
 @media (prefers-reduced-motion: reduce) { .fixed-3d-scroll__panel-glow, .tact-node--winner, .anomaly-scan, .anomaly-point--alert { animation: none; }.fixed-3d-scroll__text-enter-active, .fixed-3d-scroll__text-leave-active { transition: none; } }
 </style>

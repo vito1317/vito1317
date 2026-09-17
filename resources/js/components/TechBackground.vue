@@ -79,8 +79,9 @@ const spawnStreak = () => {
 
 const draw = (now) => {
   rafId = requestAnimationFrame(draw);
-  // 手機以 ~30fps 渲染即可，成本減半；桌面維持 60fps
-  if (width < 768 && now - lastTime < 30) return;
+  // 背景動畫上限 ~30fps（永遠在跑，是最主要的閒置 CPU 成本來源）；
+  // delta 以時間計算，降幀不影響粒子飄移速度
+  if (now - lastTime < 33) return;
   const delta = Math.min((now - lastTime) / 1000, 0.05);
   lastTime = now;
 

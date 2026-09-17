@@ -198,6 +198,8 @@ let visible = false;
 let built = false;
 let lastFront = -999;
 let frameCount = 0;
+let lastFrameTs = 0;
+const RENDER_MIN_MS = 1000 / 40; // 上限 ~40fps，捲動場景已足夠流暢又省 CPU
 let scrollRaf = null;
 const pointer = { x: 0, y: 0, px: 0, py: 0, active: false, moved: false };
 
@@ -432,9 +434,11 @@ const updateProbe = () => {
   };
 };
 
-const render = () => {
+const render = (time) => {
   rafId = requestAnimationFrame(render);
   if (!renderer || !visible) return;
+  if (time - lastFrameTs < RENDER_MIN_MS) return;
+  lastFrameTs = time;
 
   smooth.value += (progress.value - smooth.value) * 0.09;
   const value = smooth.value;

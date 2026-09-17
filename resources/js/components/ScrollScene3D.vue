@@ -33,6 +33,8 @@ let scene = null;
 let camera = null;
 let rafId = null;
 let disposed = false;
+let lastFrameTs = 0;
+const RENDER_MIN_MS = 1000 / 40; // 上限 ~40fps，省 CPU
 
 let coreGroups = [];   // 每幕一個幾何體群組（交叉變形）
 let orbitRings = [];
@@ -198,6 +200,8 @@ const renderFrame = (time) => {
 
 const loop = (time) => {
   rafId = requestAnimationFrame(loop);
+  if (time - lastFrameTs < RENDER_MIN_MS) return;
+  lastFrameTs = time;
   renderFrame(time);
 };
 
