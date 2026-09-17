@@ -30,7 +30,8 @@
 - 🤝 **Hired by CUST** as IT Consultant to lead remediation and long-term hardening strategy
 - 🏢 **Promoted to Security & R&D Manager** at IntelliTrust — driving AI-powered SOC & WAF products
 - 🤖 Fine-tuned **Gemma-3-12B** for cybersecurity use cases (Project Sentinel)
-- 🎤 **Invited speaker** at GDG on Campus NTNU & technical mentor at HackIt × 嘉義大學 Campfire hackathon
+- 🎤 **Lecturer & Curriculum Lead** for GDG on Campus NTNU (ʼ26 Tech CT), invited speaker, and technical mentor at HackIt × 嘉義大學 Campfire hackathon
+- 📄 **Published TACT** — a research paper on trust-anchored, confidence-robust consensus for LLM self-consistency voting
 - 🎓 Declined corporate offers (including Shopee HQ) to pursue **University education** while working in industry
 
 ---
@@ -163,6 +164,7 @@
 
 | 📅 **Date** | 🎯 **Event** | 🗣️ **Role** | 📝 **Topic** |
 |-------------|--------------|-------------|--------------|
+| **2026 – Present** | [**GDG on Campus · 國立臺灣師範大學**](https://gdg.community.dev/gdg-on-campus-national-taiwan-normal-university-taipei-taiwan/) | Lecturer & Curriculum Lead (講師兼課程長) | ʼ26 Tech CT technical course — curriculum design & teaching |
 | **2026-02** | [**Campfire Taiwan × HackIt @ 嘉義大學**](https://www.ncyu.edu.tw/ncyu/Subject/Detail/235725?nodeId=835) | Technical Mentor & Guest Speaker | 32h youth game-dev hackathon — system architecture & security guidance |
 | **2025** | [**GDG on Campus · 國立臺灣師範大學**](https://gdg.community.dev/events/details/google-gdg-on-campus-national-taiwan-normal-university-taipei-taiwan-presents-shi-jian-li-sheng-guo-xue-li-19sui-ke-wei-chen-de-ji-shu-zi-xue-yu-zhi-chang-tu-wei/) | Invited Speaker | 《實踐力勝過學歷：19歲柯瑋宸的技術自學與職場突圍》 |
 
@@ -212,6 +214,8 @@
  - 🏢 **Promoted to Security & R&D Manager** at IntelliTrust (Dec 2025) — leading SOC + WAF product line
  - 🎓 **Appointed IT Consultant** by CUST after independently reporting CVSS 9.8 RCE & SQL Injection flaws
  - 🤖 **Fine-tuned Gemma-3-12B** to build a domain-specific AI security assistant (Project Sentinel)
+ - 📄 **Authored [TACT: Trust-Anchored Confidence Tempering](https://www.researchgate.net/publication/411680770_TACT_Trust-Anchored_Confidence_Tempering_for_Self-Consistency_Voting_in_Large_Language_Models)** — confidence-robust consensus for LLM self-consistency voting (published on ResearchGate)
+ - 👨‍🏫 **Lecturer & Curriculum Lead (講師兼課程長)** for the ʼ26 Tech CT technical course at GDG on Campus · National Taiwan Normal University
  - 🎤 **Invited speaker** at GDG on Campus · National Taiwan Normal University
  - 👨‍🏫 **Technical mentor** at Campfire Taiwan × HackIt 32-hour youth game-dev hackathon @ NCYU
  - 🎨 Shipped high-interaction Vue.js + Three.js products at GTBooster
@@ -244,7 +248,7 @@ I believe that **creativity**, **determination**, and **continuous learning** ca
 - 🔭 **Currently building:** Security One AI SOC platform & next-gen WAF @ IntelliTrust
 - 🧪 **Currently researching:** LLM fine-tuning for offensive & defensive security workflows
 - 🌱 **Currently learning:** Advanced penetration testing, red-team tradecraft, on-prem GPU deployment
-- 🎯 **Goals:** Ship commercial AI-SOC products, publish original CVE research, mentor the next generation of security engineers
+- 🎯 **Goals:** Ship commercial AI-SOC products, publish original security & LLM research (e.g. TACT), mentor the next generation of security engineers
 - 💡 **Always exploring:** Where AI, security, and full-stack engineering intersect
 
 ---

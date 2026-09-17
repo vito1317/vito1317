@@ -99,6 +99,14 @@ const experiences = [
 
 const events = [
   {
+    date: '2026 – 至今',
+    role: '講師 / 課程長',
+    title: "'26 Tech CT 技術課程",
+    organizer: 'GDG on Campus · 國立臺灣師範大學',
+    description: '擔任台師大 Google Developer Group ʼ26 Tech CT 技術課程的講師兼課程長，負責技術課程的規劃、教材設計與授課，帶領社群成員學習軟體開發與資安實務。',
+    url: 'https://gdg.community.dev/gdg-on-campus-national-taiwan-normal-university-taipei-taiwan/',
+  },
+  {
     date: '2026.02',
     role: '特邀講師 / 技術導師',
     title: 'Campfire Taiwan 青年遊戲開發黑客松 (HackIt)',

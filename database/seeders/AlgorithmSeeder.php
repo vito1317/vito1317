@@ -36,7 +36,7 @@ class AlgorithmSeeder extends Seeder
                 ],
                 'links' => [
                     ['label' => 'GitHub', 'url' => 'https://github.com/vito1317/adaptive-reasoning-consensus'],
-                    ['label' => '論文 PDF', 'url' => 'https://github.com/vito1317/adaptive-reasoning-consensus/blob/main/paper/tact.pdf'],
+                    ['label' => '論文', 'url' => 'https://www.researchgate.net/publication/411680770_TACT_Trust-Anchored_Confidence_Tempering_for_Self-Consistency_Voting_in_Large_Language_Models'],
                     ['label' => '真實資料報告', 'url' => 'https://github.com/vito1317/adaptive-reasoning-consensus/blob/main/docs/REPORT-TACT-HARD.md'],
                     ['label' => '演算法規格', 'url' => 'https://github.com/vito1317/adaptive-reasoning-consensus/blob/main/docs/SPEC-TACT.md'],
                 ],
