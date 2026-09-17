@@ -51,6 +51,14 @@
       </p>
     </footer>
 
+    <transition name="news-hint-fade">
+      <div v-if="nearBottom" class="news-jump-hint" aria-hidden="true">
+        <span class="news-jump-hint__label">繼續下滑前往 · 新聞報導</span>
+        <span class="news-jump-hint__track"><span class="news-jump-hint__fill" :style="{ width: overscrollPct + '%' }"></span></span>
+        <span class="news-jump-hint__arrow">↓</span>
+      </div>
+    </transition>
+
   </div>
 </template>
 
@@ -58,7 +66,8 @@
 defineOptions({
   name: 'HomePage'
 });
-import { onMounted, computed } from 'vue';
+import { onMounted, onUnmounted, computed, ref } from 'vue';
+import { useRouter } from 'vue-router';
 import { useProjectStore } from '../stores/projectStore';
 import ProjectCard from '../components/ProjectCard.vue';
 import AboutMe from '../components/AboutMe.vue';
@@ -71,7 +80,67 @@ import Fixed3DScroll from '../components/Fixed3DScroll.vue';
 const store = useProjectStore();
 const projects = computed(() => store.projects);
 
+// 首頁滑到底、繼續往下滑 → 自動跳到「新聞報導」頁
+const router = useRouter();
+const nearBottom = ref(false);
+const overscroll = ref(0);
+const OVERSCROLL_THRESHOLD = 260; // 到底後仍需累積這麼多下滑量才跳頁，避免一到底就誤觸
+const overscrollPct = computed(() => Math.min(100, (overscroll.value / OVERSCROLL_THRESHOLD) * 100));
+let navigating = false;
+
+const isAtBottom = () => {
+  const doc = document.documentElement;
+  // 頁面本身要夠長（可捲動）才啟用，避免內容過短時一載入就在底部
+  return doc.scrollHeight > window.innerHeight + 200
+    && window.innerHeight + window.scrollY >= doc.scrollHeight - 4;
+};
+
+const goToNews = () => {
+  if (navigating) return;
+  navigating = true;
+  overscroll.value = OVERSCROLL_THRESHOLD;
+  router.push('/news');
+};
+
+const onScroll = () => {
+  nearBottom.value = isAtBottom();
+  if (!nearBottom.value) overscroll.value = 0;
+};
+
+const onWheel = (e) => {
+  if (navigating) return;
+  if (e.deltaY > 0 && isAtBottom()) {
+    overscroll.value += e.deltaY;
+    if (overscroll.value >= OVERSCROLL_THRESHOLD) goToNews();
+  } else if (e.deltaY < 0) {
+    overscroll.value = 0;
+  }
+};
+
+let touchY = null;
+const onTouchStart = (e) => { touchY = e.touches[0].clientY; };
+const onTouchMove = (e) => {
+  if (navigating || touchY === null) return;
+  const y = e.touches[0].clientY;
+  const dy = touchY - y; // 正值 = 手指往上滑 = 頁面往下捲
+  touchY = y;
+  if (dy > 0 && isAtBottom()) {
+    overscroll.value += dy * 2.4; // 觸控位移較小，放大累積速度
+    if (overscroll.value >= OVERSCROLL_THRESHOLD) goToNews();
+  } else if (dy < 0) {
+    overscroll.value = 0;
+  }
+};
+const onTouchEnd = () => { touchY = null; if (!navigating) overscroll.value = 0; };
+
 onMounted(async () => {
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('wheel', onWheel, { passive: true });
+  window.addEventListener('touchstart', onTouchStart, { passive: true });
+  window.addEventListener('touchmove', onTouchMove, { passive: true });
+  window.addEventListener('touchend', onTouchEnd, { passive: true });
+  onScroll();
+
   if (!store.loaded || !projects.value.length) {
     try {
       await store.fetchProjects();
@@ -80,4 +149,66 @@ onMounted(async () => {
     }
   }
 });
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', onScroll);
+  window.removeEventListener('wheel', onWheel);
+  window.removeEventListener('touchstart', onTouchStart);
+  window.removeEventListener('touchmove', onTouchMove);
+  window.removeEventListener('touchend', onTouchEnd);
+});
 </script>
+
+<style scoped>
+.news-jump-hint {
+  position: fixed;
+  left: 50%;
+  bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+  transform: translateX(-50%);
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: rgba(9, 12, 22, 0.72);
+  border: 1px solid rgba(45, 212, 191, 0.35);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.45), 0 0 18px rgba(45, 212, 191, 0.12);
+  backdrop-filter: blur(8px);
+  pointer-events: none;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: #cdeee7;
+  white-space: nowrap;
+}
+.news-jump-hint__track {
+  position: relative;
+  width: 84px;
+  height: 3px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  overflow: hidden;
+}
+.news-jump-hint__fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #2dd4bf, #22d3ee);
+  box-shadow: 0 0 10px rgba(45, 212, 191, 0.7);
+  transition: width 0.12s linear;
+}
+.news-jump-hint__arrow {
+  color: #2dd4bf;
+  font-weight: 700;
+  animation: news-hint-bob 1.4s ease-in-out infinite;
+}
+@keyframes news-hint-bob { 50% { transform: translateY(3px); } }
+
+.news-hint-fade-enter-active, .news-hint-fade-leave-active { transition: opacity 0.3s ease, transform 0.3s ease; }
+.news-hint-fade-enter-from, .news-hint-fade-leave-to { opacity: 0; transform: translate(-50%, 12px); }
+
+@media (prefers-reduced-motion: reduce) {
+  .news-jump-hint__arrow { animation: none; }
+}
+</style>
