@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Validation\ValidationException;
 use App\Mail\NewContactMessage;
 use App\Mail\ContactFormReceipt;
+use App\Services\SiteAi;
 
 class ContactController extends Controller
 {
@@ -29,14 +30,25 @@ class ContactController extends Controller
 
         $contact = Contact::create($validatedData);
 
+        // AI 撰寫初步回覆需要數秒～數十秒：先回應訪客，寄信與 AI 生成在回應送出後才執行
+        dispatch(function () use ($contact) {
+            $aiReply = SiteAi::draftEmailReply($contact);
 
-        $recipient = env('CONTACT_FORM_RECIPIENT', 'service@vito1317.com');
-        Mail::to($recipient)->send(new NewContactMessage($contact));
+            try {
+                Mail::to(config('services.contact.recipient'))->send(new NewContactMessage($contact, $aiReply));
+            } catch (\Throwable $e) {
+                Log::error('Contact owner mail failed', ['contact' => $contact->id, 'error' => $e->getMessage()]);
+            }
 
-        Mail::to($contact->email)->send(new ContactFormReceipt($contact));
+            try {
+                Mail::to($contact->email)->send(new ContactFormReceipt($contact, $aiReply));
+            } catch (\Throwable $e) {
+                Log::error('Contact receipt mail failed', ['contact' => $contact->id, 'error' => $e->getMessage()]);
+            }
+        })->afterResponse();
 
         return response()->json([
-            'message' => '訊息已成功寄出，我會盡快回覆您！一封確認信副本也已寄到您的信箱。(若未收到，請檢查垃圾郵件夾)',
+            'message' => '訊息已成功寄出，我會盡快回覆您！確認信（含 AI 助理的初步回覆）將在一分鐘內寄到您的信箱。(若未收到，請檢查垃圾郵件夾)',
         ], 201);
     }
 

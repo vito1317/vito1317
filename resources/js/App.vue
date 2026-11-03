@@ -1,9 +1,7 @@
 <template>
   <div class="bg-gray-900 min-h-screen text-white font-sans">
     
-    <Transition name="fade">
-      <LoadingScreen v-if="!projectsLoaded" />
-    </Transition>
+    <LoadingScreen v-if="!bootDone" :ready="projectsLoaded" @done="bootDone = true" />
     
     <TechBackground />
 
@@ -19,11 +17,13 @@
       </router-view>
     </div>
 
+    <AiAssistant v-if="bootDone" />
+
   </div>
 </template>
 
 <script setup>
-import { onMounted, watch } from 'vue';
+import { onMounted, ref, watch } from 'vue';
 import { useRoute } from 'vue-router';
 import { storeToRefs } from 'pinia';
 import { useProjectStore } from './stores/projectStore';
@@ -33,11 +33,14 @@ import TechBackground from './components/TechBackground.vue';
 import LoadingScreen from './components/LoadingScreen.vue';
 import Navbar from './components/Navbar.vue';
 import TechHUD from './components/TechHUD.vue';
+import AiAssistant from './components/AiAssistant.vue';
 
 const projectStore = useProjectStore();
 const uiStore = useUiStore();
 
 const { loaded: projectsLoaded } = storeToRefs(projectStore);
+// 載入動畫完整播完（含躍遷退場）後才為 true
+const bootDone = ref(false);
 
 const route = useRoute();
 

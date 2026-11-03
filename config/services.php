@@ -45,4 +45,16 @@ return [
         'verify_url' => env('SEC1_BOTFIGHT_VERIFY_URL', 'https://waf.cybersecureone.com/bf/v1/siteverify'),
     ],
 
+    'contact' => [
+        'recipient' => env('CONTACT_FORM_RECIPIENT', 'service@vito1317.com'),
+    ],
+
+    // 本機 llama.cpp（OpenAI 相容 API），供網站 AI 助理 V.AI 使用（模型名稱只留在後端）
+    'ai' => [
+        'base_url' => env('AI_BASE_URL', 'http://127.0.0.1:10003/v1'),
+        'model' => env('AI_MODEL', 'gemma-4-26B-A4B-it-qat-q4_0.gguf'),
+        'max_tokens' => (int) env('AI_MAX_TOKENS', 700),
+        'timeout' => (int) env('AI_TIMEOUT', 90),
+    ],
+
 ];

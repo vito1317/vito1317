@@ -3,7 +3,7 @@
 # 🚀 Hi there, I'm Vito (柯瑋宸) 
 ### 🛡️ Security & R&D Manager | 🤖 AI Security Researcher | 💻 Full-Stack Engineer
 
-![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=36BCF7&center=true&vCenter=true&width=520&lines=20yo+Security+%26+R%26D+Manager+%40+IntelliTrust;Front-end+Engineer+%40+GTBooster;IT+Consultant+%40+CUST;AI+Security+Researcher+(LLM+Fine-tuning);White+Hat+Hacker+(RCE%2FSQLi%2FCVSS+9.8))
+![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=36BCF7&center=true&vCenter=true&width=520&lines=20yo+Security+%26+R%26D+Manager+%40+IntelliTrust;R%26D+Engineer+%40+GTBooster;IT+Consultant+%40+CUST;AI+Security+Researcher+(LLM+Fine-tuning);White+Hat+Hacker+(RCE%2FSQLi%2FCVSS+9.8))
 
 </div>
 
@@ -17,7 +17,7 @@
 🎓 **Education:** Freshman at **China University of Science and Technology (CUST)** — Continuing Education Division (2025 – Present)  
 💼 **Current Roles:**
 - 🛡️ **Security & R&D Manager** at **[IntelliTrust (智能悅信資訊)](https://intellitrustme.com/)** — leading SOC & next-gen WAF R&D
-- 🎨 **Front-end Engineer** at **[GTBooster (聚騰科技)](https://www.gtbooster.com/)** — Vue.js / Three.js interactive web apps
+- 🎨 **R&D Engineer** at **[GTBooster (聚騰科技)](https://www.gtbooster.com/)** — Vue.js / Three.js interactive web apps
 - 🎓 **IT Consultant** at **[China University of Science and Technology (CUST)](https://www.cust.edu.tw/)** — campus security hardening
 
 🏠 **Location:** Xizhi, New Taipei City, Taiwan  
@@ -30,7 +30,7 @@
 - 🤝 **Hired by CUST** as IT Consultant to lead remediation and long-term hardening strategy
 - 🏢 **Promoted to Security & R&D Manager** at IntelliTrust — driving AI-powered SOC & WAF products
 - 🤖 Fine-tuned **Gemma-3-12B** for cybersecurity use cases (Project Sentinel)
-- 🎤 **Lecturer & Curriculum Lead** for GDG on Campus NTNU (ʼ26 Tech CT), invited speaker, and technical mentor at HackIt × 嘉義大學 Campfire hackathon
+- 🎤 **Lecturer & Curriculum Lead** for GDG on Campus NTNU (ʼ26 Tech CT), invited speaker, and guest speaker at HackIt × 嘉義大學 Campfire hackathon
 - 📄 **Published TACT** — a research paper on trust-anchored, confidence-robust consensus for LLM self-consistency voting
 - 🎓 Declined corporate offers (including Shopee HQ) to pursue **University education** while working in industry
 
@@ -165,7 +165,7 @@
 | 📅 **Date** | 🎯 **Event** | 🗣️ **Role** | 📝 **Topic** |
 |-------------|--------------|-------------|--------------|
 | **2026 – Present** | [**GDG on Campus · 國立臺灣師範大學**](https://gdg.community.dev/gdg-on-campus-national-taiwan-normal-university-taipei-taiwan/) | Lecturer & Curriculum Lead (講師兼課程長) | ʼ26 Tech CT technical course — curriculum design & teaching |
-| **2026-02** | [**Campfire Taiwan × HackIt @ 嘉義大學**](https://www.ncyu.edu.tw/ncyu/Subject/Detail/235725?nodeId=835) | Technical Mentor & Guest Speaker | 32h youth game-dev hackathon — system architecture & security guidance |
+| **2026-02** | [**Campfire Taiwan × HackIt @ 嘉義大學**](https://www.ncyu.edu.tw/ncyu/Subject/Detail/235725?nodeId=835) | Guest Speaker | 32-hour youth game-dev hackathon |
 | **2025** | [**GDG on Campus · 國立臺灣師範大學**](https://gdg.community.dev/events/details/google-gdg-on-campus-national-taiwan-normal-university-taipei-taiwan-presents-shi-jian-li-sheng-guo-xue-li-19sui-ke-wei-chen-de-ji-shu-zi-xue-yu-zhi-chang-tu-wei/) | Invited Speaker | 《實踐力勝過學歷：19歲柯瑋宸的技術自學與職場突圍》 |
 
 ---
@@ -217,7 +217,7 @@
  - 📄 **Authored [TACT: Trust-Anchored Confidence Tempering](https://www.researchgate.net/publication/411680770_TACT_Trust-Anchored_Confidence_Tempering_for_Self-Consistency_Voting_in_Large_Language_Models)** — confidence-robust consensus for LLM self-consistency voting (published on ResearchGate)
  - 👨‍🏫 **Lecturer & Curriculum Lead (講師兼課程長)** for the ʼ26 Tech CT technical course at GDG on Campus · National Taiwan Normal University
  - 🎤 **Invited speaker** at GDG on Campus · National Taiwan Normal University
- - 👨‍🏫 **Technical mentor** at Campfire Taiwan × HackIt 32-hour youth game-dev hackathon @ NCYU
+ - 🎤 **Guest speaker** at Campfire Taiwan × HackIt 32-hour youth game-dev hackathon @ NCYU
  - 🎨 Shipped high-interaction Vue.js + Three.js products at GTBooster
  - 🛍️ Created Chrome-extension automation tools adopted by real retail operations
  - 📺 Featured in 20+ major Taiwanese media outlets (Yahoo, PChome, LINE TODAY, etc.)

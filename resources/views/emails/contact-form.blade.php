@@ -9,5 +9,10 @@
     <p><strong>Email：</strong> {{ $contact->email }}</p>
     <p><strong>訊息內容：</strong></p>
     <p style="white-space: pre-wrap;">{{ $contact->message }}</p>
+    @if (!empty($aiReply))
+    <hr>
+    <h3>V.AI 已寄給對方的初步回覆（供你參考／接續回信）：</h3>
+    <p style="white-space: pre-wrap; background:#f0fdfa; border-left:4px solid #0d9488; padding:12px 16px;">{{ $aiReply }}</p>
+    @endif
 </body>
 </html>

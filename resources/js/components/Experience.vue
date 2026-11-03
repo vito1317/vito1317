@@ -90,10 +90,10 @@ const experiences = [
   },
   {
     period: '2025.03 – 至今',
-    title: '前端工程師 (Front-end Engineer)',
+    title: '研發工程師 (R&D Engineer)',
     company: '聚騰科技 (GTBooster)',
     url: 'https://www.gtbooster.com/',
-    description: '負責開發高互動性 Web 應用程式，專精 Vue.js 與 Three.js 視覺化技術，優化前端效能與使用者體驗，支援公司核心產品的快速迭代。',
+    description: '參與公司核心產品研發，開發高互動性 Web 應用程式，專精 Vue.js 與 Three.js 視覺化技術，優化效能與使用者體驗，支援產品的快速迭代。',
   },
 ];
 
@@ -103,15 +103,15 @@ const events = [
     role: '講師 / 課程長',
     title: "'26 Tech CT 技術課程",
     organizer: 'GDG on Campus · 國立臺灣師範大學',
-    description: '擔任台師大 Google Developer Group ʼ26 Tech CT 技術課程的講師兼課程長，負責技術課程的規劃、教材設計與授課，帶領社群成員學習軟體開發與資安實務。',
+    description: '擔任台師大 Google Developer Group ʼ26 Tech CT 技術課程的講師兼課程長。',
     url: 'https://gdg.community.dev/gdg-on-campus-national-taiwan-normal-university-taipei-taiwan/',
   },
   {
     date: '2026.02',
-    role: '特邀講師 / 技術導師',
+    role: '特邀講師',
     title: 'Campfire Taiwan 青年遊戲開發黑客松 (HackIt)',
     organizer: 'HackIt × 國立嘉義大學',
-    description: '受邀擔任 32 小時遊戲黑客松的特邀講師與技術導師，指導參賽者進行系統架構規劃與資安防護實務。',
+    description: '受邀參與 Campfire Taiwan × HackIt 32 小時遊戲開發黑客松。',
     url: 'https://www.ncyu.edu.tw/ncyu/Subject/Detail/235725?nodeId=835',
   },
   {
@@ -119,7 +119,7 @@ const events = [
     role: '特邀講者',
     title: '實踐力勝過學歷：19 歲柯瑋宸的技術自學與職場突圍',
     organizer: 'GDG on Campus · 國立臺灣師範大學',
-    description: '分享如何透過技術實戰與持續自學，在求學階段即進入職場核心，並深入剖析資安技術的學習路徑。',
+    description: '受邀進行校園技術分享，主題為技術自學歷程與職場突圍經驗。',
     url: 'https://gdg.community.dev/events/details/google-gdg-on-campus-national-taiwan-normal-university-taipei-taiwan-presents-shi-jian-li-sheng-guo-xue-li-19sui-ke-wei-chen-de-ji-shu-zi-xue-yu-zhi-chang-tu-wei/',
   },
 ];

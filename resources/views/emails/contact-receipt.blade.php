@@ -13,6 +13,10 @@
     .content h2 { color: #0d9488; font-size: 20px; margin-top: 0; }
     .message-box { background-color: #f8f9fa; border: 1px solid #e9ecef; border-radius: 5px; padding: 20px; margin-top: 20px; }
     .message-box p { white-space: pre-wrap; margin: 0; }
+    .ai-box { margin-top: 28px; border-left: 4px solid #0d9488; background: #f0fdfa; border-radius: 0 6px 6px 0; padding: 18px 20px; }
+    .ai-label { margin: 0 0 10px; color: #0d9488; font-size: 13px; font-weight: 700; letter-spacing: .08em; }
+    .ai-text { margin: 0; white-space: pre-wrap; }
+    .ai-note { margin: 14px 0 0; color: #6b7280; font-size: 12px; }
     .footer { text-align: center; padding: 20px; font-size: 12px; color: #999; }
     .footer a { color: #0d9488; text-decoration: none; }
   </style>
@@ -33,6 +37,14 @@
             <p><strong>訊息內容：</strong></p>
             <p>{{ $contact->message }}</p>
         </div>
+
+        @if (!empty($aiReply))
+        <div class="ai-box">
+            <p class="ai-label">V.AI 助理的初步回覆</p>
+            <p class="ai-text">{{ $aiReply }}</p>
+            <p class="ai-note">以上由 Vito 的 AI 助理自動撰寫，僅供初步參考；所有合作、報價與時程以 Vito 本人回覆為準。</p>
+        </div>
+        @endif
 
         <p style="margin-top: 30px;">期待與您有更進一步的交流！</p>
         <p><strong>vito1317 (柯瑋宸)</strong></p>

@@ -13,7 +13,7 @@
           <h3 class="text-xl sm:text-2xl font-semibold mb-4 text-teal-400">我的開發之旅</h3>
           <div class="space-y-4 text-sm sm:text-base text-gray-300 leading-relaxed">
             <p>
-              你好，我是 vito1317 (柯瑋宸)，一位專注於資訊安全與 AI 應用的全端工程師。目前就讀於 <span class="text-teal-300">中華科技大學</span>，同時擔任 <span class="text-teal-300">智能悅信資訊 (IntelliTrust)</span> 的資安暨研發經理，主導企業級 SOC 與下一代 WAF 的研發，並在 <span class="text-teal-300">聚騰科技 (GTBooster)</span> 擔任前端工程師。
+              你好，我是 vito1317 (柯瑋宸)，一位專注於資訊安全與 AI 應用的全端工程師。目前就讀於 <span class="text-teal-300">中華科技大學</span>，同時擔任 <span class="text-teal-300">智能悅信資訊 (IntelliTrust)</span> 的資安暨研發經理，主導企業級 SOC 與下一代 WAF 的研發，並在 <span class="text-teal-300">聚騰科技 (GTBooster)</span> 擔任研發工程師 (RD)。
             </p>
             <p>
               我的技術路線橫跨從使用者介面（Vue.js、Three.js）到伺服器端邏輯（Laravel、Spring Boot、Python），再到滲透測試、WAF 架構與 CVE 漏洞研究。對我而言，寫程式不只是實作功能，更是用工程思維打造安全、流暢且可持續演進的系統。

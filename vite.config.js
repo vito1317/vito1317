@@ -2,6 +2,7 @@ import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
 import vue from '@vitejs/plugin-vue';
 import Prerenderer from 'vite-plugin-prerenderer';
+import { fileURLToPath } from 'node:url';
 
 export default defineConfig({
     plugins: [
@@ -27,6 +28,12 @@ export default defineConfig({
             }
         }),
     ],
+    resolve: {
+        alias: {
+            // 從 gac-soc 搬來的 agent 動畫（thinking-orbs / border-beam / metal-fx，MIT）
+            '@agentfx': fileURLToPath(new URL('./resources/js/vendor', import.meta.url)),
+        },
+    },
     server: {
         host: '0.0.0.0',
         hmr: {

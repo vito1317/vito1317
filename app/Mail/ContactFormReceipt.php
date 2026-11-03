@@ -16,9 +16,13 @@ class ContactFormReceipt extends Mailable
 
     public $contact;
 
-    public function __construct(Contact $contact)
+    /** V.AI 撰寫的初步回覆（生成失敗時為 null，信件照常寄出） */
+    public ?string $aiReply;
+
+    public function __construct(Contact $contact, ?string $aiReply = null)
     {
         $this->contact = $contact;
+        $this->aiReply = $aiReply;
     }
 
     public function envelope(): Envelope
