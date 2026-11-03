@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\AiConversation;
+use App\Services\AiMemory;
 use App\Services\SiteAi;
+use App\Services\SiteRag;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
@@ -46,6 +49,8 @@ class AiChatController extends Controller
             'page.pointer' => 'nullable|string|max:400',
             'page.selection' => 'nullable|string|max:600',
             'page.visible' => 'nullable|string|max:2000',
+            'visitor_id' => 'nullable|string|max:64',
+            'conversation_id' => 'nullable|uuid',
         ]);
 
         $history = array_slice($validated['messages'], -self::HISTORY_LIMIT);
@@ -67,7 +72,19 @@ class AiChatController extends Controller
             $turns[$last]['content'] = SiteAi::userContentWithImage($turns[$last]['content'], $image);
         }
 
+        // 聊天紀錄與跨對話記憶（有 visitor_id 才啟用）
+        $visitor = AiMemory::validVisitor($validated['visitor_id'] ?? null) ? $validated['visitor_id'] : null;
+        $conv = null;
+        if ($visitor) {
+            $question = (string) end($history)['content'];
+            $conv = AiMemory::conversation($visitor, $validated['conversation_id'] ?? null, $question);
+            AiMemory::addMessage($conv, 'user', $question.($image ? "\n（附上了鏡頭畫面）" : ''));
+        }
+
         $system = SiteAi::systemPrompt()."\n\n".$this->leadRules()
+            .AiMemory::promptSection($visitor)
+            // RAG：用最近兩句提問去檢索論文 / 研究原文（第二句讓「那它的實驗結果呢」這類追問也找得到）
+            .SiteRag::promptSection(collect($history)->where('role', 'user')->slice(-2)->pluck('content')->implode(' '))
             .$this->pageContext($validated['page'] ?? null, (bool) $image);
 
         $messages = array_merge(
@@ -78,7 +95,7 @@ class AiChatController extends Controller
         $ip = $request->ip();
         $transcript = $validated['messages'];
 
-        return response()->stream(function () use ($messages, $ip, $transcript) {
+        return response()->stream(function () use ($messages, $ip, $transcript, $visitor, $conv) {
             // 關閉所有 output buffer，讓每個 token 立即送出
             while (ob_get_level() > 0) {
                 ob_end_flush();
@@ -93,6 +110,9 @@ class AiChatController extends Controller
             // 先送一個 SSE 註解，讓瀏覽器 / 代理立刻建立串流（也避免部分代理等第一個 byte 才開始轉送）
             echo ': stream-open'."\n\n";
             flush();
+            if ($conv) {
+                $emit(['conversation' => $conv->id]);
+            }
 
             $pending = '';     // 尚未送出的尾段（模型名稱過濾 + 偵測 LEAD 標記用）
             $reply = '';       // 本次完整回覆（不含 LEAD 區塊）
@@ -197,6 +217,13 @@ class AiChatController extends Controller
             }
 
             $emit('[DONE]');
+
+            // 回覆已送完：存下 AI 的回答，再更新這位訪客的長期記憶（訪客端已經收到 [DONE]，不會等這段）
+            if ($conv && trim($reply) !== '') {
+                AiMemory::addMessage($conv, 'assistant', $reply.($leadRaw !== null ? "\n（已把需求轉交給 Vito）" : ''));
+                ignore_user_abort(true);
+                AiMemory::update($visitor, AiMemory::transcriptText($conv));
+            }
         }, 200, [
             'Content-Type' => 'text/event-stream; charset=utf-8',
             'Cache-Control' => 'no-cache, no-transform',

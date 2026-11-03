@@ -76,8 +76,16 @@ export function useVoiceLink({ url, path, prompt }) {
       if (lastFull && lastFull.role === role) lastFull.text = text;
       return;
     }
+    // 訪客的逐字稿是跟 AI 生成同時跑的，可能比 AI 這一輪的回覆晚到：
+    // 最後一則是 AI、而且它前面不是訪客的話 → 這句屬於那一輪，插回 AI 那句前面
+    if (role === 'user' && lastFull?.role === 'ai' && full[full.length - 2]?.role !== 'user'
+      && Date.now() - (lastFull.at || 0) < 20000) {
+      transcript.value = [...full.slice(-78, -1), { role, text, at: Date.now() }, lastFull];
+      captions.value = [...list.slice(-5), { role, text }];
+      return;
+    }
     captions.value = [...list.slice(-5), { role, text }];
-    transcript.value = [...full.slice(-79), { role, text }];
+    transcript.value = [...full.slice(-79), { role, text, at: Date.now() }];
   }
 
   function stopPlayback() {
@@ -197,6 +205,7 @@ export function useVoiceLink({ url, path, prompt }) {
 
     socket.on('connect', () => {
       socket.emit('prompt_text', currentPrompt);
+      socket.emit('want_transcript'); // 請伺服器把訪客說的話也轉成文字回傳（顯示在通話紀錄上）
       socket.emit('recording-started');
       state.value = 'live';
     });

@@ -6,6 +6,7 @@ use App\Models\Project;
 use App\Http\Controllers\Api\ContactController;
 use App\Http\Controllers\Api\GithubController;
 use App\Http\Controllers\Api\AiChatController;
+use App\Http\Controllers\Api\AiHistoryController;
 
 Route::get('/projects', function () {
     return Project::orderBy('display_order', 'asc')->get();
@@ -27,3 +28,13 @@ Route::post('/ai/chat', [AiChatController::class, 'chat'])->middleware('throttle
 Route::post('/ai/suggest', [AiChatController::class, 'suggest'])->middleware('throttle:ai-suggest');
 Route::post('/ai/voice-lead', [AiChatController::class, 'voiceLead'])->middleware('throttle:ai-chat');
 Route::post('/ai/vision', [AiChatController::class, 'vision'])->middleware('throttle:ai-vision');
+
+// V.AI 聊天紀錄與跨對話記憶（以瀏覽器本機的 visitor_id 限定只能存取自己的資料）
+Route::middleware('throttle:60,1')->group(function () {
+    Route::get('/ai/history', [AiHistoryController::class, 'index']);
+    Route::get('/ai/history/{id}', [AiHistoryController::class, 'show'])->whereUuid('id');
+    Route::delete('/ai/history/{id}', [AiHistoryController::class, 'destroy'])->whereUuid('id');
+    Route::post('/ai/history/voice', [AiHistoryController::class, 'storeVoice']);
+    Route::get('/ai/memory', [AiHistoryController::class, 'memory']);
+    Route::delete('/ai/memory', [AiHistoryController::class, 'forget']);
+});
