@@ -17,7 +17,8 @@ import { useUiStore } from '../stores/uiStore';
 
 const canvasRef = ref(null);
 const uiStore = useUiStore();
-const { isWarping } = storeToRefs(uiStore);
+const { isWarping, aiPanelOpen } = storeToRefs(uiStore);
+const isMobile = () => window.innerWidth < 768;
 
 const PALETTE = [
   [34, 224, 255], // cyan
@@ -82,6 +83,8 @@ const draw = (now) => {
   // 背景動畫上限 ~30fps（永遠在跑，是最主要的閒置 CPU 成本來源）；
   // delta 以時間計算，降幀不影響粒子飄移速度
   if (now - lastTime < 33) return;
+  // 手機上 AI 對話框幾乎蓋滿整個畫面：背景不用畫，省下的 GPU 也讓對話框不閃
+  if (aiPanelOpen.value && isMobile()) { lastTime = now; return; }
   const delta = Math.min((now - lastTime) / 1000, 0.05);
   lastTime = now;
 
@@ -178,6 +181,8 @@ const stop = () => {
 
 const resize = () => {
   const canvas = canvasRef.value;
+  // 手機網址列伸縮、鍵盤彈出只會讓高度小幅變動：不重建 canvas（重建會清空畫面造成閃爍）
+  if (width && window.innerWidth === width && Math.abs(window.innerHeight - height) < 160) return;
   width = window.innerWidth;
   height = window.innerHeight;
   dpr = Math.min(window.devicePixelRatio || 1, 1.5);

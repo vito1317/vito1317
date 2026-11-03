@@ -25,6 +25,13 @@ class RouteServiceProvider extends ServiceProvider
             ];
         });
 
+        RateLimiter::for('ai-suggest', function (Request $request) {
+            return [
+                Limit::perMinute(12)->by('ais-m:'.$request->ip()),
+                Limit::perHour(150)->by('ais-h:'.$request->ip()),
+            ];
+        });
+
         RateLimiter::for('ai-vision', function (Request $request) {
             return [
                 Limit::perMinute(15)->by('aiv-m:'.$request->ip()),

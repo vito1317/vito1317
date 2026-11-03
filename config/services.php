@@ -45,6 +45,16 @@ return [
         'verify_url' => env('SEC1_BOTFIGHT_VERIFY_URL', 'https://waf.cybersecureone.com/bf/v1/siteverify'),
     ],
 
+    // 信箱來信自動回覆（php artisan inbox:ai-reply，每分鐘排程）；IMAP 預設沿用寄信的 SMTP 帳號
+    'inbox_ai' => [
+        'enabled' => env('INBOX_AI_ENABLED', true),
+        'host' => env('INBOX_IMAP_HOST', env('MAIL_HOST', 'mail.spacemail.com')),
+        'port' => (int) env('INBOX_IMAP_PORT', 993),
+        'username' => env('INBOX_IMAP_USERNAME', env('MAIL_USERNAME')),
+        'password' => env('INBOX_IMAP_PASSWORD', env('MAIL_PASSWORD')),
+        'sent_folder' => env('INBOX_SENT_FOLDER', 'Sent'),
+    ],
+
     'contact' => [
         'recipient' => env('CONTACT_FORM_RECIPIENT', 'service@vito1317.com'),
     ],
