@@ -11,6 +11,45 @@
       先前這裡只列得出媒體名稱（「Yahoo新聞」「PChome新聞」），
       讀的人得逐一點開才知道寫了什麼——而大部分人不會點。
     -->
+    <!-- 主要媒體：Yahoo 新聞、LINE TODAY 置頂於所有報導之前 -->
+    <div class="mb-10 sm:mb-14" data-aos="fade-up">
+      <div class="flex items-center gap-3 mb-4 font-mono text-xs tracking-widest text-teal-400">
+        <span>FEATURED</span>
+        <span class="h-px flex-grow bg-teal-400/25"></span>
+        <span>主要媒體</span>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+        <a
+          v-for="f in featured"
+          :key="f.name"
+          :href="f.url"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group relative flex flex-col rounded-2xl overflow-hidden border border-gray-700/60 bg-gray-800/60 hover:border-teal-400/70 transition-all duration-300 hover:-translate-y-1 shadow-lg hover:shadow-cyan-500/10"
+          :title="`${f.name}：${f.headline}`"
+        >
+          <div class="aspect-[16/10] w-full overflow-hidden bg-gray-900/60">
+            <img
+              v-if="f.image"
+              :src="f.image"
+              :alt="`${f.name} — 新聞報導截圖`"
+              loading="lazy"
+              class="w-full h-full object-cover object-top group-hover:scale-[1.03] transition-transform duration-500"
+            />
+            <div v-else class="w-full h-full flex flex-col items-center justify-center gap-1 text-gray-600">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14M4 6h16a1 1 0 011 1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V7a1 1 0 011-1z"/></svg>
+              <span class="text-xs tracking-wide">截圖準備中</span>
+            </div>
+          </div>
+          <div class="p-5">
+            <span class="inline-block px-2.5 py-1 rounded-md text-xs font-semibold text-teal-300 bg-teal-500/10 border border-teal-500/20">{{ f.name }}</span>
+            <h3 class="mt-3 text-base sm:text-lg font-bold text-gray-100 leading-snug group-hover:text-teal-400 transition-colors">{{ f.headline }}</h3>
+            <span class="mt-3 inline-flex items-center gap-1 text-sm text-teal-400">查看報導 <span aria-hidden="true">↗</span></span>
+          </div>
+        </a>
+      </div>
+    </div>
+
     <div id="news-list" class="flex flex-col gap-6 sm:gap-8 scroll-mt-24">
       <article
         v-for="(story, index) in stories"
@@ -34,12 +73,28 @@
 
         <p class="mt-4 text-gray-300 leading-relaxed max-w-3xl">{{ story.summary }}</p>
 
+        <a
+          v-if="story.image"
+          :href="story.outlets[0].url"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="block mt-5 overflow-hidden rounded-xl border border-gray-700/60 bg-gray-900/40 group/shot"
+          :title="`檢視「${story.headline}」原始報導`"
+        >
+          <img
+            :src="story.image"
+            :alt="`${story.headline} — 新聞報導截圖`"
+            loading="lazy"
+            class="w-full max-h-[26rem] object-cover object-top group-hover/shot:scale-[1.02] transition-transform duration-500"
+          />
+        </a>
+
         <!--
           十幾家媒體刊的是同一篇轉載，不是十幾則獨立報導。
           分開寫才不會把轉載數量講成報導數量。
         -->
         <p class="mt-5 text-xs text-gray-500">
-          {{ story.outlets[0].name }} 原發<template v-if="story.outlets.length > 1">，另有 {{ story.outlets.length - 1 }} 家媒體轉載</template>
+          {{ story.original || story.outlets[0].name }} 原發<template v-if="story.outlets.length > 1">，另有 {{ story.outlets.length - 1 }} 家媒體轉載</template>
         </p>
 
         <div class="mt-3 flex flex-wrap gap-2">
@@ -100,6 +155,7 @@ import NewsSignalScroll from '../components/NewsSignalScroll.vue';
 const stories = [
   {
     code: 'NEWS_01',
+    image: '/images/news/twnews-89729.jpg',
     headline: '19歲高職肄業生自學程式　開發蝦皮物流自動化工具引起關注',
     date: '2025.06.20',
     datetime: '2025-06-20',
@@ -110,6 +166,7 @@ const stories = [
   },
   {
     code: 'NEWS_02',
+    image: '/images/news/ezpr.jpg',
     headline: '年僅19歲的程式奇才：從高中肄業到科技公司力邀，更為蝦皮開發內部工具',
     date: '2025.06.20',
     datetime: '2025-06-20',
@@ -120,14 +177,16 @@ const stories = [
   },
   {
     code: 'NEWS_03',
+    image: '/images/news/tyenews.jpg',
     headline: '從肄業生到科技新貴　19歲奇才柯瑋宸的逆襲之路　獲蝦皮延攬入主總部',
     date: '2025.06',
     datetime: '2025-06',
     summary: '桃園電子報的專訪，完整記錄從技術圖解、前端工程經驗、門市流程觀察，到自動化工具通過蝦皮 IT 安全審核、最後獲總部延攬的整段過程。這一篇被十多家媒體同步轉載。',
+    original: '桃園電子報',
     outlets: [
-      { name: '桃園電子報', url: 'https://tyenews.com/2025/06/881588/' },
-      { name: 'LINE TODAY', url: 'https://today.line.me/tw/v2/article/DRP2ZEg' },
       { name: 'Yahoo新聞', url: 'https://tw.news.yahoo.com/%E5%BE%9E%E8%82%84%E6%A5%AD%E7%94%9F%E5%88%B0%E7%A7%91%E6%8A%80%E6%96%B0%E8%B2%B4-19%E6%AD%B2%E5%A5%87%E6%89%8D%E6%9F%AF%E7%91%8B%E5%AE%B8%E7%9A%84%E9%80%86%E8%A5%B2%E4%B9%8B%E8%B7%AF-%E7%8D%B2%E8%9D%A6%E7%9A%AE%E5%BB%B6%E6%94%AC%E5%85%A5%E4%B8%BB%E7%B8%BD%E9%83%A8-084007989.html' },
+      { name: 'LINE TODAY', url: 'https://today.line.me/tw/v2/article/DRP2ZEg' },
+      { name: '桃園電子報', url: 'https://tyenews.com/2025/06/881588/' },
       { name: 'PChome新聞', url: 'https://news.pchome.com.tw/society/tyenews/20250625/index-75084080724970343002.html' },
       { name: '蕃新聞', url: 'https://n.yam.com/Article/20250630373033' },
       { name: '奧丁丁新聞', url: 'https://news.owlting.com/articles/1055098' },
@@ -145,6 +204,7 @@ const stories = [
   },
   {
     code: 'NEWS_04',
+    image: '/images/news/twnews-89871.jpg',
     headline: '打工仔逆襲！19歲自學工程師柯瑋宸　從門市人員踏入技術核心',
     date: '2025.06.30',
     datetime: '2025-06-30',
@@ -154,6 +214,15 @@ const stories = [
     ],
   },
 ];
+
+// 置頂主要媒體：Yahoo 新聞、LINE TODAY（指向被最多家轉載的主報導）。
+// image 之後放上截圖檔（/images/news/*.jpg）即會自動顯示，未提供時顯示佔位。
+const featuredStory = stories.find((s) => s.code === 'NEWS_03') || stories[0];
+const outletByName = (name) => featuredStory.outlets.find((o) => o.name === name);
+const featured = [
+  { ...outletByName('Yahoo新聞'), headline: featuredStory.headline, image: '/images/news/yahoo.jpg' },
+  { ...outletByName('LINE TODAY'), headline: featuredStory.headline, image: '/images/news/line-today.jpg' },
+].filter((f) => f.url);
 
 const outletCount = computed(
   () => new Set(stories.flatMap((story) => story.outlets.map((outlet) => outlet.name))).size,
