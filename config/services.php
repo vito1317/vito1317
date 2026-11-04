@@ -65,6 +65,8 @@ return [
         'model' => env('AI_MODEL', 'gemma-4-26B-A4B-it-qat-q4_0.gguf'),
         'max_tokens' => (int) env('AI_MAX_TOKENS', 700),
         'timeout' => (int) env('AI_TIMEOUT', 90),
+        // 本機語音伺服器呼叫 /api/ai/voice-knowledge 用的共用密鑰
+        'voice_relay_secret' => env('VOICE_RELAY_SECRET', ''),
     ],
 
 ];

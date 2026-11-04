@@ -27,6 +27,7 @@ Route::post('/ai/chat', [AiChatController::class, 'chat'])->middleware('throttle
 // 鏡頭畫面描述（語音模式每 ~6 秒一張）：每 IP 每分鐘 15 次、每小時 240 次
 Route::post('/ai/suggest', [AiChatController::class, 'suggest'])->middleware('throttle:ai-suggest');
 Route::post('/ai/voice-lead', [AiChatController::class, 'voiceLead'])->middleware('throttle:ai-chat');
+Route::post('/ai/voice-knowledge', \App\Http\Controllers\Api\AiVoiceKnowledgeController::class)->middleware('throttle:120,1');
 Route::post('/ai/vision', [AiChatController::class, 'vision'])->middleware('throttle:ai-vision');
 
 // V.AI 聊天紀錄與跨對話記憶（以瀏覽器本機的 visitor_id 限定只能存取自己的資料）

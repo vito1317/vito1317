@@ -40,6 +40,8 @@ export function scrubModelNames(text) {
   return scrubRules.reduce((t, [re, to]) => t.replace(re, to), String(text || ''));
 }
 
+const VOCAB = 'V.AI、Vito、柯瑋宸、vito1317、TACT、Self-Consistency、Somers\' D、Security One、IntelliTrust、智能悅信、聚騰科技、GDG、Aura News、奈奈、LINE、Email';
+
 export function useVoiceLink({ url, path, prompt }) {
   const state = ref('idle'); // idle | connecting | live | busy | error | ended
   const error = ref('');
@@ -61,6 +63,9 @@ export function useVoiceLink({ url, path, prompt }) {
   let resamplePos = 0;
   let sendBuffer = [];
   let currentPrompt = prompt;
+  // knowledge：伺服器每輪先轉錄訪客的話、向網站查相關研究資料附進人設（模型仍是原生全雙工語音）
+  // vocab：給語音辨識的專有名詞提示，避免把 TACT、Vito 聽錯
+  const promptPayload = () => ({ prompt: currentPrompt, knowledge: true, vocab: VOCAB });
 
   function pushCaption(role, rawText) {
     const text = role === 'ai' ? scrubModelNames(rawText) : rawText;
@@ -204,7 +209,7 @@ export function useVoiceLink({ url, path, prompt }) {
     });
 
     socket.on('connect', () => {
-      socket.emit('prompt_text', currentPrompt);
+      socket.emit('prompt_text', promptPayload());
       socket.emit('want_transcript'); // 請伺服器把訪客說的話也轉成文字回傳（顯示在通話紀錄上）
       socket.emit('recording-started');
       state.value = 'live';
@@ -263,7 +268,7 @@ export function useVoiceLink({ url, path, prompt }) {
   /** 連線途中更新人設（例如塞入最新的鏡頭畫面描述）；伺服器每輪都會讀最新的人設 */
   function setPrompt(next) {
     currentPrompt = next;
-    if (socket?.connected) socket.emit('prompt_text', next);
+    if (socket?.connected) socket.emit('prompt_text', promptPayload());
   }
 
   function toggleMute() {
